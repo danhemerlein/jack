@@ -1,0 +1,18 @@
+$transition-duration-short: 1.5s;
+$transition-duration-med: 2s;
+$transition-duration-mid: 2.5s;
+$transition-duration-long: 3.5s;
+$transition-duration-extra-long: 5.5s;
+
+$screen-s: 40rem;
+$screen-m: 52rem;
+$screen-l: 64rem;
+$screen-xl: 76rem;
+
+$small-up: 'min-width: #{$screen-s}';
+$small-down: 'max-width: #{$screen-m}';
+$medium-up: 'min-width: #{$screen-m}';
+$medium-down: 'max-width: #{$screen-l}';
+$large-up: 'min-width: #{$screen-l}';
+$large-down: 'max-width: #{$screen-xl}';
+$xlarge-up: 'min-width: #{$screen-xl}';
