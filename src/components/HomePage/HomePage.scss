@@ -1,0 +1,22 @@
+@import "../../styles/app.scss";
+
+
+.HomePage {
+  -webkit-animation: fadein $transition-duration-short;
+  -moz-animation: fadein $transition-duration-short;
+  -ms-animation: fadein $transition-duration-short;
+  -o-animation: fadein $transition-duration-short;
+  animation: fadein $transition-duration-short;
+
+  &__headline {
+    font-size: 2.5rem; 
+
+    &--last-name {
+      top: 3.7rem;
+    }
+  }
+
+  &__sub-headline{
+    font-size: 1.5rem;
+  }
+}

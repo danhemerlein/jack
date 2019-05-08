@@ -1,0 +1,5 @@
+@import "../../styles/app.scss";
+
+.ProjectCard{
+  border: 1px solid map-get($colors, "black");
+}
