@@ -12,7 +12,9 @@ const MainView = ({ model }) => {
         firstName={get(model, "fields.firstName", {})}
         lastName={get(model, "fields.lastName", {})}
         backgroundImage={get(model, "fields.backgroundImage", {})}
-        projects={get(model, "fields.projects.fields", [])}>
+        projects={get(model, "fields.projects.fields", [])}
+        tunes={get(model, 'fields.tunes')}
+        >
       </HomePage>
     </div>
   );

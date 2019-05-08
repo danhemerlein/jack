@@ -8,6 +8,8 @@
   -o-animation: fadein $transition-duration-short;
   animation: fadein $transition-duration-short;
 
+  height: 100vh;
+
   &__headline {
     font-size: 2.5rem; 
 

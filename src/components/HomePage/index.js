@@ -6,28 +6,30 @@ import './HomePage.scss'
 import cx from 'classnames';
 
 import ProjectCard from 'components/ProjectCard';
+import MusicPlayer from 'components/MusicPlayer';
 
 export default class HomePage extends Component {
 
-  setHeight = () => {
-    const homePage = document.querySelector('.HomePage');
+  // setHeight = () => {
+  //   const homePage = document.querySelector('.HomePage');
+  //   const musicPlayer = document.querySelector('.MusicPlayer');
+    
+  //   const hpHeight = (window.innerHeight - musicPlayer.offsetHeight);
 
-    const hpHeight = (window.innerHeight - 1);
+  //   homePage.style.height = hpHeight + "px";
+  // }
 
-    homePage.style.height = hpHeight + "px";
-  }
+  // debounceAPHeight = () => {
+  //   debounce(this.setHeight(), 100);
+  // }
 
-  debounceAPHeight = () => {
-    debounce(this.setHeight(), 100);
-  }
+  // componentDidMount() {
+  //   this.setHeight();
 
-  componentDidMount() {
-    this.setHeight();
-
-    window.addEventListener("resize", () => {
-      this.setHeight();
-    });
-  }
+  //   window.addEventListener("resize", () => {
+  //     this.setHeight();
+  //   });
+  // }
 
   render() {
     const backgroundImage = {
@@ -73,8 +75,10 @@ export default class HomePage extends Component {
         </div>
 
         <div>
-          
-
+          <MusicPlayer
+            tunes={this.props.tunes}
+          >
+          </MusicPlayer>
         </div>
 
       </div>

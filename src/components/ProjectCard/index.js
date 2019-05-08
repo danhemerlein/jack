@@ -9,8 +9,9 @@ export default class ProjectCard extends Component {
   setHeight = () => {
     const projectCards = document.querySelectorAll('.ProjectCard');
     const header = document.querySelector('.HomePage__header');
+    const musicPlayer = document.querySelector('.MusicPlayer');
 
-    const pcHeight = (window.innerHeight - header.offsetHeight) / 3;
+    const pcHeight = (window.innerHeight - header.offsetHeight - musicPlayer.offsetHeight) / 3;
 
     for (let project of projectCards) {
       project.style.height = pcHeight + "px";
