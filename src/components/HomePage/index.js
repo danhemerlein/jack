@@ -35,7 +35,7 @@ export default class HomePage extends Component {
     };
     return (
       <div className={cx("HomePage overflow-hidden w100")}>
-        <div className={cx("w100 bg-black flex justify-between ")}>
+        <div className={cx("HomePage__header w100 bg-black flex justify-between ")}>
 
           <div className={cx("p1 relative")}>
             <h1 className={cx("HomePage__headline title-sans-serif color-white")}>{this.props.firstName}</h1>
@@ -59,14 +59,24 @@ export default class HomePage extends Component {
         {/* <div style={backgroundImage} className={cx("col-6 h100 bg-cover")}></div>
         <div className={cx("col-6 h100")}></div> */}
 
-        {this.props.projects.map((project, key) => {
-          return <div key={key}>
-            <ProjectCard
-              id={project.id}
-              title={project.title}
-            ></ProjectCard>
-          </div>;
-        })}
+        <div className={cx("flex flex-wrap")}>
+
+          {this.props.projects.map((project, key) => {
+            return <div key={key} className={cx("col-3")}>
+              <ProjectCard
+                id={project.id}
+                title={project.title}
+              ></ProjectCard>
+            </div>;
+          })}
+
+        </div>
+
+        <div>
+          
+
+        </div>
+
       </div>
     )
   }
