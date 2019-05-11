@@ -35,6 +35,26 @@ class MusicPlayer extends Component {
     player.src = this.state.tunes[0].fields.file.url;
   }
 
+  play = () => {
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.play();
+  }
+
+  pause = () => {
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.pause();
+  }
+
+  mute = () => {
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.volume = 0;
+  }
+  
+  unMute = () => {
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.volume = 1;
+  }
+
   nextSong = () => {
     const nextSongIndex = (this.state.activeIndex + 1);
     const lastSongIndex = (this.state.tunes.length - 1);
@@ -87,18 +107,26 @@ class MusicPlayer extends Component {
           <audio id="audio-player" />
         </figure>
 
-        <div className="">
+        <div className="pl1">
           <RewindIcon
             clickHandler={this.prevSong}
           ></RewindIcon>
-          <PlayIcon></PlayIcon>
-          <PauseIcon></PauseIcon>
+          <PlayIcon 
+            clickHandler={this.play}
+          ></PlayIcon>
+          <PauseIcon
+            clickHandler={this.pause}
+          ></PauseIcon>
           <FastForwardIcon
             id="next-song"
             clickHandler={this.nextSong}
           ></FastForwardIcon>
-          <MuteIcon></MuteIcon>
-          <SoundOnIcon></SoundOnIcon>
+          <MuteIcon
+            clickHandler={this.mute}
+          ></MuteIcon>
+          <SoundOnIcon
+            clickHandler={this.unMute}
+          ></SoundOnIcon>
         </div>
 
       </div>
