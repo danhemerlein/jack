@@ -10,27 +10,6 @@ import MusicPlayer from 'components/MusicPlayer';
 
 export default class HomePage extends Component {
 
-  // setHeight = () => {
-  //   const homePage = document.querySelector('.HomePage');
-  //   const musicPlayer = document.querySelector('.MusicPlayer');
-    
-  //   const hpHeight = (window.innerHeight - musicPlayer.offsetHeight);
-
-  //   homePage.style.height = hpHeight + "px";
-  // }
-
-  // debounceAPHeight = () => {
-  //   debounce(this.setHeight(), 100);
-  // }
-
-  // componentDidMount() {
-  //   this.setHeight();
-
-  //   window.addEventListener("resize", () => {
-  //     this.setHeight();
-  //   });
-  // }
-
   setHeight = () => {
     const homePageBody = document.querySelector('.HomePage__body');
     const musicPlayer = document.querySelector('.MusicPlayer');
@@ -53,7 +32,6 @@ export default class HomePage extends Component {
     const backgroundImage = {
       backgroundImage: "url(" + this.props.backgroundImage.fields.file.url + ")"
     };
-    const imgURL = this.props.backgroundImage.fields.file.url;
     return (
       <div className={cx("HomePage w100")}>
         <div className={cx("HomePage__header w100 bg-black flex justify-between ")}>
@@ -64,14 +42,15 @@ export default class HomePage extends Component {
           </div>
 
           <div className={cx("p1")}>
+
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
-              producer
+              {this.props.subTitleOne}
             </h2>
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
-              engineer
+              {this.props.subTitleTwo}
             </h2>
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
-              songwriter 
+              {this.props.subTitleThree}
             </h2>
 
           </div>
@@ -81,13 +60,15 @@ export default class HomePage extends Component {
 
           <div className={cx("col-6 flex")}>
 
-            {/* <img className={cx("col-6 h100")} src={imgURL} alt=""/> */}
-
             <div className={cx("col-6 h100 bg-cover")} style={backgroundImage}></div>
 
             <div className={cx("col-6 p2 flex justify-center items-center bg-black")}>
 
-              <h3 className={cx("title-sans-serif text-center color-white")}>Hey I'm Jack.  I live in Queens and I slang them hitz.  Send me some electronic mail to get in touch if you bout it bout it.</h3>
+              <h3 className={cx("title-sans-serif text-center color-white")}>
+              
+                {this.props.bio}
+              
+              </h3>
 
             </div>
 

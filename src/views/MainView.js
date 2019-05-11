@@ -14,6 +14,10 @@ const MainView = ({ model }) => {
         backgroundImage={get(model, "fields.backgroundImage", {})}
         projects={get(model, "fields.projects.fields", [])}
         tunes={get(model, 'fields.tunes')}
+        bio={get(model, 'fields.bio')}
+        subTitleOne={get(model, 'fields.subTitleOne')}
+        subTitleTwo={get(model, 'fields.subTitleTwo')}
+        subTitleThree={get(model, 'fields.subTitleThree')}
         >
       </HomePage>
     </div>

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './MusicPlayer.scss';
 import cx from "classnames";
 
+import secondsToHms from "utils/secondsToHms";
+
 import PlayIcon from 'components/icons/Play';
 import PauseIcon from 'components/icons/Pause';
 import RewindIcon from 'components/icons/Rewind';
@@ -17,7 +19,10 @@ class MusicPlayer extends Component {
     this.state = {
       tunes: this.props.tunes,
       activeIndex: 0,
+      duration: "",
+      timeElapsed: 0,
     };
+
   }
 
   selectSong = (index) => {
@@ -38,6 +43,18 @@ class MusicPlayer extends Component {
   play = () => {
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.play();
+    this.updateTimeElapsed();
+  }
+  
+  updateTimeElapsed = () => {
+
+    var audioPlayer = document.getElementById("audio-player");
+    setInterval(() => {
+      this.setState({
+        timeElapsed: audioPlayer.currentTime
+      })
+    }, 100);
+
   }
 
   pause = () => {
@@ -53,6 +70,15 @@ class MusicPlayer extends Component {
   unMute = () => {
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.volume = 1;
+  }
+  
+  duration = (player) => {
+    player.onloadedmetadata = () => {
+      const formatedTime = secondsToHms(String(player.duration));
+        this.setState({
+          duration: formatedTime,
+        })  
+    };
   }
 
   nextSong = () => {
@@ -79,35 +105,31 @@ class MusicPlayer extends Component {
   }
 
   componentDidMount = () => {
+
     var audioPlayer = document.getElementById("audio-player");
     this.initPlayer(audioPlayer);
 
-    audioPlayer.addEventListener('ended', function () {
+    audioPlayer.addEventListener('ended', () => {
 
-      var simulateClick = function (elem) {
-        var evt = new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-          view: window
-        });
-        var canceled = !elem.dispatchEvent(evt);
-      };
+      clearInterval(this.updateTimeElapsed);
 
-      var nextButton = document.getElementById("next-song");
+      this.nextSong();
 
-      simulateClick(nextButton);
     })
+
+    this.duration(audioPlayer);
 
   };
 
   render() {
     return (
-      <div className="MusicPlayer w100 h100">
-        <figure className="">
-          <audio id="audio-player" />
+      <div className="MusicPlayer w100 h100 flex">
+        <figure>
+          <audio id="audio-player" preload="metadata"/>
         </figure>
 
         <div className="pl1">
+        
           <RewindIcon
             clickHandler={this.prevSong}
           ></RewindIcon>
@@ -127,6 +149,13 @@ class MusicPlayer extends Component {
           <SoundOnIcon
             clickHandler={this.unMute}
           ></SoundOnIcon>
+
+        </div>
+
+        <div>
+
+          <span className={cx("mr_5")}>{secondsToHms(this.state.timeElapsed)}</span>
+          <span>{this.state.duration}</span>
         </div>
 
       </div>
