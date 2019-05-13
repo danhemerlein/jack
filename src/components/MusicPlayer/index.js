@@ -22,6 +22,7 @@ class MusicPlayer extends Component {
       duration: "",
       timeElapsed: 0,
       activeTitle: "",
+      muted: false,
     };
 
   }
@@ -69,11 +70,23 @@ class MusicPlayer extends Component {
   }
 
   mute = () => {
+    this.setState({
+      muted: true
+    })
+
+    console.log(this.state.muted);
+    
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.volume = 0;
   }
   
   unMute = () => {
+    this.setState({
+      muted: false
+    })
+    
+    console.log(this.state.muted);
+
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.volume = 1;
   }
@@ -114,6 +127,8 @@ class MusicPlayer extends Component {
 
   componentDidMount = () => {
 
+    console.log(this.state.muted);
+
     var audioPlayer = document.getElementById("audio-player");
     this.initPlayer(audioPlayer);
 
@@ -130,6 +145,7 @@ class MusicPlayer extends Component {
   };
 
   render() {
+
     return (
       <div className="MusicPlayer w100 h100 flex bg-black color-white">
         <figure>
@@ -153,12 +169,20 @@ class MusicPlayer extends Component {
               id="next-song"
               clickHandler={this.nextSong}
             ></FastForwardIcon>
-            <MuteIcon
-              clickHandler={this.mute}
-            ></MuteIcon>
-            <SoundOnIcon
-              clickHandler={this.unMute}
-            ></SoundOnIcon>
+
+            <div className="ml1">
+              <div className={cx({ 'block': this.state.muted === false }, { 'none': this.state.muted === true })}>
+                <MuteIcon
+                  clickHandler={this.mute}
+                ></MuteIcon>
+              </div>
+
+              <div className={cx({ 'block': this.state.muted === true }, { 'none': this.state.muted === false })}>
+                <SoundOnIcon
+                  clickHandler={this.unMute}
+                ></SoundOnIcon>
+              </div>
+            </div>
 
           </div>
 

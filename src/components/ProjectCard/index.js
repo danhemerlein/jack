@@ -25,7 +25,7 @@ export default class ProjectCard extends Component {
           by&nbsp;{this.props.artist}
         </div>
 
-        <div className={cx("mt1", { 'ProjectCard__long-roles--show': longRoles === true }, { 'ProjectCard__long-roles--hide': longRoles === false })}>
+        <div className={cx("mt1", { 'block': longRoles === true }, { 'none': longRoles === false })}>
           <div className={cx("title-sans-serif")}>
             {this.props.roles.split('/')[0]}/
             {this.props.roles.split('/')[1]} 
@@ -39,7 +39,7 @@ export default class ProjectCard extends Component {
 
         </div>
         
-        <div className={cx("title-sans-serif mt1", { 'ProjectCard__long-roles--hide': longRoles === true })}>
+        <div className={cx("title-sans-serif mt1", { 'none': longRoles === true })}>
           {this.props.roles}
         </div>
       </div>

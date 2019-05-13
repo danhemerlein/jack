@@ -2,14 +2,4 @@
 
 .ProjectCard{
   border: 1px solid map-get($colors, "black");
-
-  &__long-roles {
-    &--hide {
-      display: block;
-    }
-
-    &--hide {
-      display: none;
-    }
-  }
 }
