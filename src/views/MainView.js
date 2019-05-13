@@ -18,6 +18,7 @@ const MainView = ({ model }) => {
         subTitleOne={get(model, 'fields.subTitleOne')}
         subTitleTwo={get(model, 'fields.subTitleTwo')}
         subTitleThree={get(model, 'fields.subTitleThree')}
+        subTitleFour={get(model, 'fields.subTitleFour')}
         >
       </HomePage>
     </div>

@@ -9,12 +9,38 @@ export default class ProjectCard extends Component {
     const divStyle = {
       height: "240px"
     };
+
+    let longRoles = false;
+    if (this.props.roles.split('/').length > 3) {
+      longRoles = true; 
+    }
   
     return (
-      <div style={divStyle} className={cx("ProjectCard flex items-center justify-center flex-col")}>
-        <div>{this.props.title}</div>
-        <div>
+      <div style={divStyle} className={cx("ProjectCard p2 flex items-center justify-center flex-col")}>
+        <div className={cx("title-sans-serif")}>
+          {this.props.title}
+        </div>
+
+        <div className={cx("title-sans-serif")}>
           by&nbsp;{this.props.artist}
+        </div>
+
+        <div className={cx("mt1", { 'ProjectCard__long-roles--show': longRoles === true }, { 'ProjectCard__long-roles--hide': longRoles === false })}>
+          <div className={cx("title-sans-serif")}>
+            {this.props.roles.split('/')[0]}/
+            {this.props.roles.split('/')[1]} 
+          </div>
+
+          <div className={cx("title-sans-serif text-center")}>
+            {this.props.roles.split('/')[2]}/
+            {this.props.roles.split('/')[3]}
+          </div>
+
+
+        </div>
+        
+        <div className={cx("title-sans-serif mt1", { 'ProjectCard__long-roles--hide': longRoles === true })}>
+          {this.props.roles}
         </div>
       </div>
     )

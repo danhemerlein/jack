@@ -76,7 +76,9 @@ export default class HomePage extends Component {
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
               {this.props.subTitleThree}
             </h2>
-
+            <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
+              {this.props.subTitleFour}
+            </h2>
           </div>
         </div>
 
@@ -90,15 +92,17 @@ export default class HomePage extends Component {
 
             <div className={cx("col-6 p2 flex justify-center items-center bg-black flex-col")}>
 
-            <h3 className={cx("title-sans-serif text-center color-white")}>
-            
-              {this.props.bio}
-            
-            </h3>
+              <h3 className={cx("title-sans-serif text-center color-white")}>
+              
+                {this.props.bio}
+              
+              </h3>
 
-            <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif")} href="mailto:jacksonhoffmanmusic@gmail.com">
-              <span>email me</span>
-            </a>
+              <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif")} href="mailto:jacksonhoffmanmusic@gmail.com">
+
+                <span>email me</span>
+                
+              </a>
 
             </div>
 
@@ -112,6 +116,7 @@ export default class HomePage extends Component {
                   id={project.id}
                   title={project.title}
                   artist={project.artist}
+                  roles={project.roles}
                 ></ProjectCard>
               </div>;
             })}

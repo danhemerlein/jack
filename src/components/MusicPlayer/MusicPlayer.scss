@@ -8,4 +8,24 @@
     cursor: pointer;
     fill:  map-get($colors, "white");
   }
+
+  &__icon-container {
+    width: 50%;
+
+    @media (min-width: 640px) {
+      width: 25%;
+    }
+  }
+
+  &__data-container {
+
+
+    &--duration{
+      display: none;
+
+      @media (min-width: 640px) {
+        display: block;
+      }
+    }    
+  }
 }

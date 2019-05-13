@@ -96,6 +96,8 @@ class MusicPlayer extends Component {
     } else {
       this.selectSong(nextSongIndex);
     }
+
+    this.updateTimeElapsed();
   }
 
   prevSong = () => {
@@ -136,7 +138,7 @@ class MusicPlayer extends Component {
 
         <div className="flex w100">
 
-          <div className="col-3 flex items-center justify-center">
+          <div className="MusicPlayer__icon-container col-3 flex items-center justify-center">
           
             <RewindIcon
               clickHandler={this.prevSong}
@@ -160,9 +162,9 @@ class MusicPlayer extends Component {
 
           </div>
 
-          <div className={cx("flex items-center justify-center col-6")}>
+          <div className={cx("MusicPlayer__data-container flex items-center justify-center col-6")}>
 
-            <div className="col-3">
+            <div className="MusicPlayer__data-container--duration col-3">
               <span className={cx("title-sans-serif")}>{secondsToHms(this.state.timeElapsed)}</span>
               <span className={cx("mx_5 title-sans-serif")}>|</span>
               <span className={cx("mr_5 title-sans-serif")}>{this.state.duration}</span>
