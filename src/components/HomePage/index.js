@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import debounce from "utils/debounce";
+import secondsToHms from "utils/secondsToHms";
 
 import './HomePage.scss'
 import cx from 'classnames';
@@ -9,6 +10,20 @@ import ProjectCard from 'components/ProjectCard';
 import MusicPlayer from 'components/MusicPlayer';
 
 export default class HomePage extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tunes: this.props.tunes,
+      activeIndex: 0,
+      duration: "",
+      timeElapsed: 0,
+      activeTitle: "",
+      muted: false,
+    };
+
+  }
 
   setHeight = () => {
     const homePageBody = document.querySelector('.HomePage__body');
@@ -24,7 +39,103 @@ export default class HomePage extends Component {
     debounce(this.setHeight(), 100);
   }
 
-  projectCardClick = () => {
+  projectCardClick = (index) => {
+    this.selectSong(index);
+  }
+
+  selectSong = (index) => {
+    var audioPlayer = document.getElementById("audio-player");
+
+    this.setState({
+      activeIndex: index,
+      activeTitle: this.state.tunes[index].fields.title,
+    })
+
+    audioPlayer.src = this.state.tunes[index].fields.file.url;
+    this.play();
+  };
+
+  initPlayer = (player) => {
+    player.src = this.state.tunes[0].fields.file.url;
+
+    this.setState({
+      activeTitle: this.state.tunes[0].fields.title,
+    })
+  }
+
+  play = () => {
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.play();
+    this.updateTimeElapsed();
+  }
+
+  updateTimeElapsed = () => {
+
+    var audioPlayer = document.getElementById("audio-player");
+    setInterval(() => {
+      this.setState({
+        timeElapsed: audioPlayer.currentTime
+      })
+    }, 100);
+
+  }
+
+  pause = () => {
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.pause();
+  }
+
+  mute = () => {
+    this.setState({
+      muted: true
+    })
+
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.volume = 0;
+  }
+
+  unMute = () => {
+    this.setState({
+      muted: false
+    })
+
+    var audioPlayer = document.getElementById("audio-player");
+    audioPlayer.volume = 1;
+  }
+
+  duration = (player) => {
+    player.onloadedmetadata = () => {
+      const formatedTime = secondsToHms(String(player.duration));
+      this.setState({
+        duration: formatedTime,
+      })
+    };
+  }
+
+  nextSong = () => {
+    const nextSongIndex = (this.state.activeIndex + 1);
+    const lastSongIndex = (this.state.tunes.length - 1);
+
+    if (this.state.activeIndex === lastSongIndex) {
+      this.selectSong(0);
+    } else {
+      this.selectSong(nextSongIndex);
+    }
+
+    this.updateTimeElapsed();
+  }
+
+  prevSong = () => {
+    const prevSongIndex = (this.state.activeIndex - 1);
+    const lastSongIndex = (this.state.tunes.length - 1);
+
+    if (this.state.activeIndex === 0) {
+      this.selectSong(lastSongIndex);
+    } else {
+      this.selectSong(prevSongIndex);
+    }
+
+    this.updateTimeElapsed();
 
   }
 
@@ -47,6 +158,18 @@ export default class HomePage extends Component {
         homePageBody.style.height = "auto";
       }
     });
+
+    var audioPlayer = document.getElementById("audio-player");
+
+    audioPlayer.addEventListener('ended', () => {
+
+      clearInterval(this.updateTimeElapsed);
+
+      this.nextSong();
+
+    })
+
+    this.duration(audioPlayer);
   }
 
   render() {
@@ -135,6 +258,17 @@ export default class HomePage extends Component {
 
           <MusicPlayer
             tunes={this.props.tunes}
+            muted={this.state.muted}
+            timeElapsed={this.state.timeElapsed}
+            duration={this.state.duration}
+            activeTitle={this.state.activeTitle}
+            initFunction={this.initPlayer}
+            prevSong={this.prevSong}
+            play={this.play}
+            pause={this.pause}
+            nextSong={this.nextSong}
+            mute={this.mute}
+            unMute={this.unMute}
           >
           </MusicPlayer>
 
