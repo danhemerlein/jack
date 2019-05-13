@@ -2,9 +2,11 @@
   "name": "jack",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://danhemerlein.github.io/jack/",
   "dependencies": {
     "classnames": "^2.2.6",
     "contentful": "^7.5.1",
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
@@ -13,6 +15,8 @@
   },
   "scripts": {
     "start": "NODE_PATH=src react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "NODE_PATH=src react-scripts build",
     "test": "NODE_PATH=src react-scripts test",
     "eject": "react-scripts eject"
