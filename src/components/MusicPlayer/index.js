@@ -21,6 +21,7 @@ class MusicPlayer extends Component {
       activeIndex: 0,
       duration: "",
       timeElapsed: 0,
+      activeTitle: "",
     };
 
   }
@@ -30,6 +31,7 @@ class MusicPlayer extends Component {
 
     this.setState({
       activeIndex: index,
+      activeTitle: this.state.tunes[index].fields.title,
     })
 
     audioPlayer.src = this.state.tunes[index].fields.file.url;
@@ -38,6 +40,10 @@ class MusicPlayer extends Component {
 
   initPlayer = (player) => {
     player.src = this.state.tunes[0].fields.file.url;
+
+    this.setState({
+      activeTitle: this.state.tunes[0].fields.title,
+    })
   }
 
   play = () => {
@@ -123,39 +129,51 @@ class MusicPlayer extends Component {
 
   render() {
     return (
-      <div className="MusicPlayer w100 h100 flex">
+      <div className="MusicPlayer w100 h100 flex bg-black color-white">
         <figure>
           <audio id="audio-player" preload="metadata"/>
         </figure>
 
-        <div className="pl1">
-        
-          <RewindIcon
-            clickHandler={this.prevSong}
-          ></RewindIcon>
-          <PlayIcon 
-            clickHandler={this.play}
-          ></PlayIcon>
-          <PauseIcon
-            clickHandler={this.pause}
-          ></PauseIcon>
-          <FastForwardIcon
-            id="next-song"
-            clickHandler={this.nextSong}
-          ></FastForwardIcon>
-          <MuteIcon
-            clickHandler={this.mute}
-          ></MuteIcon>
-          <SoundOnIcon
-            clickHandler={this.unMute}
-          ></SoundOnIcon>
+        <div className="flex w100">
 
-        </div>
+          <div className="col-3 flex items-center justify-center">
+          
+            <RewindIcon
+              clickHandler={this.prevSong}
+            ></RewindIcon>
+            <PlayIcon 
+              clickHandler={this.play}
+            ></PlayIcon>
+            <PauseIcon
+              clickHandler={this.pause}
+            ></PauseIcon>
+            <FastForwardIcon
+              id="next-song"
+              clickHandler={this.nextSong}
+            ></FastForwardIcon>
+            <MuteIcon
+              clickHandler={this.mute}
+            ></MuteIcon>
+            <SoundOnIcon
+              clickHandler={this.unMute}
+            ></SoundOnIcon>
 
-        <div>
+          </div>
 
-          <span className={cx("mr_5")}>{secondsToHms(this.state.timeElapsed)}</span>
-          <span>{this.state.duration}</span>
+          <div className={cx("flex items-center justify-center col-6")}>
+
+            <div className="col-3">
+              <span className={cx("title-sans-serif")}>{secondsToHms(this.state.timeElapsed)}</span>
+              <span className={cx("mx_5 title-sans-serif")}>|</span>
+              <span className={cx("mr_5 title-sans-serif")}>{this.state.duration}</span>
+            </div>
+
+            <div className="col-9">
+              <span className={cx("title-sans-serif")}>{this.state.activeTitle}</span>
+            </div>
+            
+          </div>
+
         </div>
 
       </div>

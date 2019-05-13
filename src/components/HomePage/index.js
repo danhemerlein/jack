@@ -14,17 +14,34 @@ export default class HomePage extends Component {
     const homePageBody = document.querySelector('.HomePage__body');
     const musicPlayer = document.querySelector('.MusicPlayer');
     const header = document.querySelector('.HomePage__header');
+    
     const hpBodyHeight = (window.innerHeight - (musicPlayer.offsetHeight + header.offsetHeight));
-
-    homePageBody.style.height = (hpBodyHeight - 2) + "px";
+    
+    homePageBody.style.height = (hpBodyHeight) + "px";
   }
+
   debounceAPHeight = () => {
     debounce(this.setHeight(), 100);
   }
+
   componentDidMount() {
-    this.setHeight();
-    window.addEventListener("resize", () => {
+    const homePageBody = document.querySelector('.HomePage__body');
+    var scale = window.devicePixelRatio * window.innerWidth;
+
+    if ((scale / 2) > 1024) {
       this.setHeight();
+    } else {
+      homePageBody.style.height = "auto";
+    }
+
+    window.addEventListener("resize", () => {
+      var scale = window.devicePixelRatio * window.innerWidth;
+
+      if ((scale / 2) > 1024) {
+        this.setHeight();
+      } else {
+        homePageBody.style.height = "auto";
+      }
     });
   }
 
@@ -32,16 +49,23 @@ export default class HomePage extends Component {
     const backgroundImage = {
       backgroundImage: "url(" + this.props.backgroundImage.fields.file.url + ")"
     };
+
+    const imageURL = this.props.backgroundImage.fields.file.url;
+
     return (
       <div className={cx("HomePage w100")}>
         <div className={cx("HomePage__header w100 bg-black flex justify-between ")}>
 
-          <div className={cx("p1 relative")}>
-            <h1 className={cx("HomePage__headline title-sans-serif color-white")}>{this.props.firstName}</h1>
-            <h1 className={cx("HomePage__headline HomePage__headline--last-name title-sans-serif color-white absolute ml1")}>{this.props.lastName}</h1>
+          <div className={cx("HomePage__header--name col-6")}>
+            <div className={cx("p1 col-6 flex items-center flex-col")}>
+              <h1 className={cx("HomePage__headline title-sans-serif color-white")}>{this.props.firstName}</h1>
+              <h1 className={cx("HomePage__headline title-sans-serif color-white ml2")}>{this.props.lastName}</h1>
+            </div>
+
+            <div className={cx("col-6")}></div>
           </div>
 
-          <div className={cx("p1")}>
+          <div className={cx("HomePage__header--roles p1 col-6 flex justify-around items-end")}>
 
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
               {this.props.subTitleOne}
@@ -58,29 +82,36 @@ export default class HomePage extends Component {
 
         <div className={cx("HomePage__body w100 flex")}>
 
-          <div className={cx("col-6 flex")}>
+          <div className={cx("HomePage__body--info-container flex")}>
 
-            <div className={cx("col-6 h100 bg-cover")} style={backgroundImage}></div>
+            <div className={cx("HomePage__body--image-desktop col-6 h100 bg-cover")} style={backgroundImage}></div>
 
-            <div className={cx("col-6 p2 flex justify-center items-center bg-black")}>
+            <img className={cx("HomePage__body--image-mobile col-6 h100")} src={imageURL} alt=""/>
 
-              <h3 className={cx("title-sans-serif text-center color-white")}>
-              
-                {this.props.bio}
-              
-              </h3>
+            <div className={cx("col-6 p2 flex justify-center items-center bg-black flex-col")}>
+
+            <h3 className={cx("title-sans-serif text-center color-white")}>
+            
+              {this.props.bio}
+            
+            </h3>
+
+            <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif")} href="mailto:jacksonhoffmanmusic@gmail.com">
+              <span>email me</span>
+            </a>
 
             </div>
 
           </div>
 
-          <div className={cx("HomePage__projects-container col-6 flex flex-wrap")}>
+          <div className={cx("HomePage__body--projects-container flex flex-wrap")}>
 
             {this.props.projects.map((project, key) => {
               return <div key={key} className={cx("col-6")}>
                 <ProjectCard
                   id={project.id}
                   title={project.title}
+                  artist={project.artist}
                 ></ProjectCard>
               </div>;
             })}

@@ -1,6 +1,5 @@
 @import "../../styles/app.scss";
 
-
 .HomePage {
   -webkit-animation: fadein $transition-duration-short;
   -moz-animation: fadein $transition-duration-short;
@@ -8,7 +7,12 @@
   -o-animation: fadein $transition-duration-short;
   animation: fadein $transition-duration-short;
 
-  // height: 100vh;
+  overflow: hidden;  
+  height: auto;
+  
+  @media (min-width: 1024px) {
+    height: 100vh;
+  }
 
   &__headline {
     font-size: 2.5rem; 
@@ -22,7 +26,58 @@
     font-size: 1.5rem;
   }
 
-  &__projects-container {
-    overflow-y: scroll;
+
+
+  &__body {
+
+    flex-wrap: wrap;
+      
+    @media (min-width: 1024px) {
+      flex-wrap: nowrap;
+    }
+
+    &--info-container {
+
+      width: 100%;
+      
+      @media (min-width: 1024px) {
+        width: 50%
+      }
+
+    }
+
+    &--image-desktop {
+      display: none;
+      
+      @media (min-width: 1024px) {
+        display: block;
+      }
+    }
+
+    &--image-mobile {
+      display: block;
+      
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
+
+
+    &--projects-container {
+      overflow-y: none;
+      width: 100%;
+      
+      @media (min-width: 1024px) {
+        width: 50%;
+        overflow-y: scroll;
+      }
+    }
+
+    &--link {
+      border: 1px solid map-get($colors, "black");
+      box-shadow: -5px 5px 4px map-get($colors, "white");
+      background: map-get($colors, "white");
+      text-decoration: none;
+    }
   }
 }

@@ -1,7 +1,11 @@
+@import "../../styles/app.scss";
+
 .MusicPlayer{
+
   svg {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
+    fill:  map-get($colors, "white");
   }
 }

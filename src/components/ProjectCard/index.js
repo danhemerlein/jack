@@ -7,12 +7,15 @@ export default class ProjectCard extends Component {
   render() {
 
     const divStyle = {
-      height: "140px"
+      height: "240px"
     };
   
     return (
-      <div style={divStyle} className={cx("ProjectCard flex items-center justify-center")}>
-        {this.props.title}
+      <div style={divStyle} className={cx("ProjectCard flex items-center justify-center flex-col")}>
+        <div>{this.props.title}</div>
+        <div>
+          by&nbsp;{this.props.artist}
+        </div>
       </div>
     )
   }
