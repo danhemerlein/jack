@@ -183,8 +183,8 @@ export default class HomePage extends Component {
       <div className={cx("HomePage w100")}>
         <div className={cx("HomePage__header w100 bg-black flex justify-between ")}>
 
-          <div className={cx("HomePage__header--name col-6")}>
-            <div className={cx("p1 col-6 flex items-center flex-col")}>
+          <div className={cx("HomePage__header--name")}>
+            <div className={cx("p1 flex items-center flex-col")}>
               <h1 className={cx("HomePage__headline title-sans-serif color-white")}>{this.props.firstName}</h1>
               <h1 className={cx("HomePage__headline title-sans-serif color-white ml2")}>{this.props.lastName}</h1>
             </div>
@@ -192,7 +192,7 @@ export default class HomePage extends Component {
             <div className={cx("col-6")}></div>
           </div>
 
-          <div className={cx("HomePage__header--roles p1 col-6 flex justify-around items-end")}>
+          <div className={cx("HomePage__header--roles p1 col-6 justify-around items-end")}>
 
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
               {this.props.subTitleOne}

@@ -26,6 +26,32 @@
     font-size: 1.5rem;
   }
 
+  &__header {
+    
+    &--roles {
+      display: none;
+      
+      @media (min-width: 1024px) {
+        display: flex;
+      }
+    }
+
+    &--name {
+      width: 100%;
+
+      > div {
+        width: 100%;
+      }
+      
+      @media (min-width: 1024px) {
+        width: 50%;
+
+        > div {
+          width: 50%;
+        }
+      }
+    }
+  }
 
 
   &__body {
