@@ -73,8 +73,6 @@ class MusicPlayer extends Component {
     this.setState({
       muted: true
     })
-
-    console.log(this.state.muted);
     
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.volume = 0;
@@ -85,8 +83,6 @@ class MusicPlayer extends Component {
       muted: false
     })
     
-    console.log(this.state.muted);
-
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.volume = 1;
   }
@@ -126,8 +122,6 @@ class MusicPlayer extends Component {
   }
 
   componentDidMount = () => {
-
-    console.log(this.state.muted);
 
     var audioPlayer = document.getElementById("audio-player");
     this.initPlayer(audioPlayer);

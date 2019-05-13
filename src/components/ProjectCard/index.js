@@ -16,8 +16,8 @@ export default class ProjectCard extends Component {
     }
   
     return (
-      <div style={divStyle} className={cx("ProjectCard p2 flex items-center justify-center flex-col")}>
-        <div className={cx("title-sans-serif")}>
+      <div onClick={this.props.clickHandler} style={divStyle} className={cx("ProjectCard p2 flex items-center justify-center flex-col")}>
+        <div className={cx("bold title-sans-serif")}>
           {this.props.title}
         </div>
 

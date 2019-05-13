@@ -24,6 +24,10 @@ export default class HomePage extends Component {
     debounce(this.setHeight(), 100);
   }
 
+  projectCardClick = () => {
+
+  }
+
   componentDidMount() {
     const homePageBody = document.querySelector('.HomePage__body');
     var scale = window.devicePixelRatio * window.innerWidth;
@@ -117,6 +121,7 @@ export default class HomePage extends Component {
                   title={project.title}
                   artist={project.artist}
                   roles={project.roles}
+                  clickHandler={this.projectCardClick}
                 ></ProjectCard>
               </div>;
             })}
