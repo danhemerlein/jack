@@ -192,7 +192,7 @@ export default class HomePage extends Component {
             <div className={cx("col-6")}></div>
           </div>
 
-          <div className={cx("HomePage__header--roles p1 col-6 justify-around items-end")}>
+          {/* <div className={cx("HomePage__header--roles p1 col-6 justify-around items-end")}>
 
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
               {this.props.subTitleOne}
@@ -206,7 +206,7 @@ export default class HomePage extends Component {
             <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
               {this.props.subTitleFour}
             </h2>
-          </div>
+          </div> */}
         </div>
 
         <div className={cx("HomePage__body w100 flex")}>
@@ -219,11 +219,33 @@ export default class HomePage extends Component {
 
             <div className={cx("col-6 p2 flex justify-center items-center bg-black flex-col")}>
 
+              <div className={cx("flex justify-between w100 mb3")}>
+
+                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                  {this.props.subTitleOne}
+                </h2>
+                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                  {this.props.subTitleTwo}
+                </h2>
+
+              </div>
+
               <h3 className={cx("title-sans-serif text-center color-white")}>
               
                 {this.props.bio}
               
               </h3>
+
+              <div className={cx("flex justify-between w100 mt3")}>
+
+                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                  {this.props.subTitleThree}
+                </h2>
+                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                  {this.props.subTitleFour}
+                </h2>
+
+              </div>
 
               <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif")} href="mailto:jacksonhoffmanmusic@gmail.com">
 
@@ -245,6 +267,8 @@ export default class HomePage extends Component {
                   artist={project.artist}
                   roles={project.roles}
                   clickHandler={this.projectCardClick}
+                  image={this.props.artworkArray[key]}
+                  cta={this.props.cta}
                 ></ProjectCard>
               </div>;
             })}

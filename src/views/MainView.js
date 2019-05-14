@@ -19,6 +19,8 @@ const MainView = ({ model }) => {
         subTitleTwo={get(model, 'fields.subTitleTwo')}
         subTitleThree={get(model, 'fields.subTitleThree')}
         subTitleFour={get(model, 'fields.subTitleFour')}
+        artworkArray={get(model, 'fields.musicArtwork')}
+        cta={get(model, 'fields.projectCardCta')}
         >
       </HomePage>
     </div>

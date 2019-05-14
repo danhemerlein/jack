@@ -1,6 +1,43 @@
 @import "../../styles/app.scss";
 
 .ProjectCard{
-  border: 1px solid map-get($colors, "black");
   cursor: pointer;
+
+  &__overlay {
+    opacity: 0;
+    color: color('black');
+    -moz-transition: opacity $transition-duration-ultra-short ease-in-out;
+    -webkit-transition: opacity $transition-duration-ultra-short ease-in-out;
+    transition: opacity $transition-duration-ultra-short ease-in-out;
+  }
+
+  &__container {
+    &:hover .ProjectCard__overlay {
+      opacity: .80;
+    }
+
+    &:hover .ProjectCard__svg-container {
+      transform: scale(1.5);
+    }
+
+    &:hover .ProjectCard__CTA {
+      opacity: 1;
+    }
+  }
+
+  &__svg-container {
+    width: 10%;
+    height: 10%;
+    -moz-transition: transform $transition-duration-sorta-short ease-in-out;
+    -webkit-transition: transform $transition-duration-sorta-short ease-in-out;
+    transition: transform $transition-duration-sorta-short ease-in-out;
+  }
+
+  &__CTA {
+    opacity: 0;
+    -moz-transition: opacity $transition-duration-1s ease-in-out;
+    -webkit-transition: opacity $transition-duration-1s ease-in-out;
+    transition: opacity $transition-duration-1s ease-in-out;
+    transition-delay: 1s;
+  }
 }
