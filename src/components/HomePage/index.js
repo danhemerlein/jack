@@ -9,6 +9,8 @@ import cx from 'classnames';
 import ProjectCard from 'components/ProjectCard';
 import MusicPlayer from 'components/MusicPlayer';
 
+import DottedLineIcon from 'components/icons/DottedLine';
+
 export default class HomePage extends Component {
 
   constructor(props) {
@@ -179,17 +181,20 @@ export default class HomePage extends Component {
 
     const imageURL = this.props.backgroundImage.fields.file.url;
 
+    // const cardHeight = {
+    //   height: "300px"
+    // }
+
     return (
       <div className={cx("HomePage w100")}>
         <div className={cx("HomePage__header w100 bg-black flex justify-between ")}>
 
           <div className={cx("HomePage__header--name")}>
             <div className={cx("p1 flex items-center flex-col")}>
-              <h1 className={cx("HomePage__headline title-sans-serif color-white")}>{this.props.firstName}</h1>
-              <h1 className={cx("HomePage__headline title-sans-serif color-white ml2")}>{this.props.lastName}</h1>
-            </div>
-
-            <div className={cx("col-6")}></div>
+              {/* <h1 className={cx("HomePage__headline title-sans-serif color-white")}>{this.props.firstName}</h1>
+              <h1 className={cx("HomePage__headline title-sans-serif color-white ml2")}>{this.props.lastName}</h1> */}
+              <h1 className={cx("HomePage__headline title-sans-serif color-white")}>{this.props.firstName}&nbsp;{this.props.lastName}</h1>
+            </div>            
           </div>
 
           {/* <div className={cx("HomePage__header--roles p1 col-6 justify-around items-end")}>
@@ -207,51 +212,59 @@ export default class HomePage extends Component {
               {this.props.subTitleFour}
             </h2>
           </div> */}
+
         </div>
 
         <div className={cx("HomePage__body w100 flex")}>
 
-          <div className={cx("HomePage__body--info-container flex")}>
+          <div className={cx("HomePage__body--info-container flex flex-col sm:flex-row")}>
 
-            <div className={cx("HomePage__body--image-desktop col-6 h100 bg-cover")} style={backgroundImage}></div>
+            <div className={cx("HomePage__body--image-desktop col-12 sm:col-6 bg-cover")} style={backgroundImage}></div>
 
-            <img className={cx("HomePage__body--image-mobile col-6 h100")} src={imageURL} alt=""/>
+            <img className={cx("HomePage__body--image-mobile col-12 sm:col-6")} src={imageURL} alt=""/>
 
-            <div className={cx("col-6 p2 flex justify-center items-center bg-black flex-col")}>
+            <div className={cx("col-12 sm:col-6 p2 flex items-center bg-black justify-center flex-col h100 relative")}>
 
-              <div className={cx("flex justify-between w100 mb3")}>
+              <div className={cx("HomePage__body--top-line absolute t0")}></div>
 
-                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
-                  {this.props.subTitleOne}
-                </h2>
-                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
-                  {this.props.subTitleTwo}
-                </h2>
-
-              </div>
-
-              <h3 className={cx("title-sans-serif text-center color-white")}>
+              <div className={cx("HomePage__body--bio-container flex flex-col")}>
               
-                {this.props.bio}
-              
-              </h3>
+                <div className={cx("flex justify-between w100 mb3")}>
 
-              <div className={cx("flex justify-between w100 mt3")}>
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                    {this.props.subTitleOne}
+                  </h2>
 
-                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
-                  {this.props.subTitleThree}
-                </h2>
-                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
-                  {this.props.subTitleFour}
-                </h2>
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                    {this.props.subTitleTwo}
+                  </h2>
 
-              </div>
+                </div>
 
-              <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif")} href="mailto:jacksonhoffmanmusic@gmail.com">
-
-                <span>email me</span>
+                <h3 className={cx("title-sans-serif text-center color-white")}>
                 
-              </a>
+                  {this.props.bio}
+                
+                </h3>
+
+                <div className={cx("flex justify-between w100 mt3")}>
+
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                    {this.props.subTitleThree}
+                  </h2>
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold")}>
+                    {this.props.subTitleFour}
+                  </h2>
+
+                </div>
+
+                <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif col-3 text-center self-center")} href="mailto:jacksonhoffmanmusic@gmail.com">
+
+                  <span>email me</span>
+                  
+                </a>
+
+              </div>
 
             </div>
 
@@ -260,7 +273,7 @@ export default class HomePage extends Component {
           <div className={cx("HomePage__body--projects-container flex flex-wrap")}>
 
             {this.props.projects.map((project, key) => {
-              return <div key={key} className={cx("col-6")}>
+              return <div key={key} className={cx("col-12 sm:col-6")}>
                 <ProjectCard
                   id={project.id}
                   title={project.title}

@@ -16,8 +16,8 @@ export default class ProjectCard extends Component {
     }
   
     return (
-      <div onClick={() => {this.props.clickHandler(this.props.id - 1)}} className={cx("ProjectCard flex items-center justify-center flex-col")}>
-        <div className={cx("ProjectCard__container relative")}>
+      <div onClick={() => {this.props.clickHandler(this.props.id - 1)}} className={cx("ProjectCard flex items-center justify-center flex-col h100 w100")}>
+        <div className={cx("ProjectCard__container relative h100 w100")}>
 
           <div className="w100 h100 flex">
             <Image src={this.props.image.fields.file.url} alt={this.props.image.fields.file.url} />
