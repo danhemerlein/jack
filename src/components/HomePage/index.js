@@ -37,7 +37,7 @@ export default class HomePage extends Component {
     const header = document.querySelector('.HomePage__header');
     
     const hpBodyHeight = (window.innerHeight - (musicPlayer.offsetHeight + header.offsetHeight));
-    
+
     homePageBody.style.height = (hpBodyHeight) + "px";
   }
 
@@ -147,18 +147,16 @@ export default class HomePage extends Component {
 
   componentDidMount() {
     const homePageBody = document.querySelector('.HomePage__body');
-    var scale = window.devicePixelRatio * window.innerWidth;
 
-    if ((scale / 2) > 1024) {
+    if (window.innerWidth > 1024) {
       this.setHeight();
     } else {
       homePageBody.style.height = "auto";
     }
 
     window.addEventListener("resize", () => {
-      var scale = window.devicePixelRatio * window.innerWidth;
 
-      if ((scale / 2) > 1024) {
+      if (window.innerWidth > 1024) {
         this.setHeight();
       } else {
         homePageBody.style.height = "auto";
@@ -306,7 +304,7 @@ export default class HomePage extends Component {
 
                 </div>
 
-                <div className={cx("flex justify-around w100")}>
+                <div className={cx("justify-around w100 none sm:flex")}>
 
                   <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
                     {this.props.subTitleOne}
@@ -318,7 +316,7 @@ export default class HomePage extends Component {
 
                 </div>
 
-                <div className={cx("flex justify-around w100")}>
+                <div className={cx("justify-around w100 none sm:flex")}>
 
                   <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
                     {this.props.subTitleThree}
