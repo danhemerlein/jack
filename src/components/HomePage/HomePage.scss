@@ -1,14 +1,71 @@
 @import "../../styles/app.scss";
 
 .HomePage {
-  -webkit-animation: fadein $transition-duration-short;
-  -moz-animation: fadein $transition-duration-short;
-  -ms-animation: fadein $transition-duration-short;
-  -o-animation: fadein $transition-duration-short;
-  animation: fadein $transition-duration-short;
+  -webkit-animation: fadein $transition-duration-1s;
+  -moz-animation: fadein $transition-duration-1s;
+  -ms-animation: fadein $transition-duration-1s;
+  -o-animation: fadein $transition-duration-1s;
+  animation: fadein $transition-duration-1s;
 
   overflow: hidden;  
   height: auto;
+
+  &__first-name {
+    -webkit-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    -moz-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    -ms-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    -o-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+  }
+
+  &__wide-right-fade {
+    -webkit-animation: fade-in-right-wide $transition-duration-ultra-short cubic-bezier(0.25, 0.2, 0, 1);
+    -moz-animation: fade-in-right-wide $transition-duration-ultra-short cubic-bezier(0.25, 0.2, 0, 1);
+    -ms-animation: fade-in-right-wide $transition-duration-ultra-short cubic-bezier(0.25, 0.2, 0, 1);
+    -o-animation: fade-in-right-wide $transition-duration-ultra-short cubic-bezier(0.25, 0.2, 0, 1);
+    animation: fade-in-right-wide $transition-duration-ultra-short cubic-bezier(0.25, 0.2, 0, 1);
+    transform: translateX(50%);
+  }
+
+  &__last-name {
+    -webkit-animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    -moz-animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    -ms-animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    -o-animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+    animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+  }
+
+  &__hi {
+    -webkit-animation: fadein $transition-duration-1s;
+    -moz-animation: fadein $transition-duration-1s;
+    -ms-animation: fadein $transition-duration-1s;
+    -o-animation: fadein $transition-duration-1s;
+    animation: fadein $transition-duration-1s;
+  }
+
+  &__email {
+    -webkit-animation: fadein $transition-duration-med;
+    -moz-animation: fadein $transition-duration-med;
+    -ms-animation: fadein $transition-duration-med;
+    -o-animation: fadein $transition-duration-med;
+    animation: fadein $transition-duration-med;
+  }
+
+  &__neon {
+    -webkit-animation: neon5 $transition-duration-1s;
+    -moz-animation: neon5 $transition-duration-1s;
+    -ms-animation: neon5 $transition-duration-1s;
+    -o-animation: neon5 $transition-duration-1s;
+    animation: neon5 $transition-duration-1s;
+  }
+
+  &__neon-box-shadow {
+    -webkit-animation: neon-box-shadow $transition-duration-1s;
+    -moz-animation: neon-box-shadow $transition-duration-1s;
+    -ms-animation: neon-box-shadow $transition-duration-1s;
+    -o-animation: neon-box-shadow $transition-duration-1s;
+    animation: neon-box-shadow $transition-duration-1s;
+  }
 
   svg {
     fill: map-get($colors, "white");
@@ -18,16 +75,20 @@
     height: 100vh;
   }
 
+  &__neon-animation {
+    -webkit-animation: neon5 $transition-duration-short;
+    -moz-animation: neon5 $transition-duration-short;
+    -ms-animation: neon5 $transition-duration-short;
+    -o-animation: neon5 $transition-duration-short;
+    animation: neon5 $transition-duration-short;
+  }
+
   &__headline {
     font-size: 6rem; 
   }
 
   &__sub-headline {
     font-size: 1.5rem;
-  }
-
-  &__svg-horizontal {
-    transform: rotate(90deg);
   }
 
   &__header {
@@ -92,11 +153,6 @@
       @media (min-width: 1024px) {
         display: none;
       }
-    }
-
-    &--top-line {
-      height: 33.33%;
-      border-right: 1px dotted map-get($colors, "white");
     }
 
     &--projects-container {
