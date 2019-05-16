@@ -61,7 +61,7 @@ class MusicPlayer extends Component {
 
           </div>
 
-          <div className={cx("MusicPlayer__data-container flex items-center justify-center col-6")}>
+          <div className={cx("MusicPlayer__data-container flex items-center justify-center")}>
 
             <div className="MusicPlayer__data-container--duration col-3">
               <span className={cx("title-sans-serif")}>{secondsToHms(this.props.timeElapsed)}</span>

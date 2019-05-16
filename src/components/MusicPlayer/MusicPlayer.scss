@@ -13,12 +13,15 @@
     width: 50%;
 
     @media (min-width: 640px) {
-      width: 25%;
+      width: 33.33%;
     }
   }
 
   &__data-container {
 
+    @media (min-width: 640px) {
+      width: 66.66%;
+    }
 
     &--duration{
       display: none;

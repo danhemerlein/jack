@@ -9,8 +9,6 @@ import cx from 'classnames';
 import ProjectCard from 'components/ProjectCard';
 import MusicPlayer from 'components/MusicPlayer';
 
-import DottedLineIcon from 'components/icons/DottedLine';
-
 export default class HomePage extends Component {
 
   constructor(props) {
@@ -201,19 +199,19 @@ export default class HomePage extends Component {
       this.setState({
         showStuffLike: true
       })
-    }, 4300);
+    }, 4500);
 
     setTimeout(() => {
       this.setState({
         neonBoxShadow: true
       })
-    }, 5100);
+    }, 5500);
 
     setTimeout(() => {
       this.setState({
         showEmail: true
       })
-    }, 6000);
+    }, 7500);
   }
 
   render() {
@@ -263,19 +261,7 @@ export default class HomePage extends Component {
 
               </div>
 
-              <div className={cx("HomePage__body--bio-container flex flex-col w100 mt2")}>
-              
-                <div className={cx("flex justify-between w100")}>
-
-                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi  HomePage__neon': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
-                    {this.props.subTitleOne}
-                  </h2>
-
-                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi  HomePage__neon': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
-                    {this.props.subTitleTwo}
-                  </h2>
-
-                </div>
+              <div className={cx("HomePage__body--bio-container flex flex-col w100")}>
 
                 <div className={cx("none sm:block")}>
 
@@ -287,24 +273,63 @@ export default class HomePage extends Component {
 
                 </div>
 
-                <h3 className={cx("title-sans-serif my3 text-center color-white block sm:none")}>
-                
-                  {this.props.bio}
-                
-                </h3>
+                <div className={cx("block sm:none")}>
 
-                <div className={cx("flex justify-between w100")}>
+                  <div className={cx("flex justify-between w100")}>
 
-                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi  HomePage__neon': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                      {this.props.subTitleOne}
+                    </h2>
+
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                      {this.props.subTitleTwo}
+                    </h2>
+
+                  </div>
+
+                  <h3 className={cx("title-sans-serif my3 text-center color-white block sm:none")}>
+                  
+                    {this.props.bio}
+                  
+                  </h3>
+
+                  <div className={cx("flex justify-between w100")}>
+
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                      {this.props.subTitleThree}
+                    </h2>
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                      {this.props.subTitleFour}
+                    </h2>
+
+                  </div>
+
+                </div>
+
+                <div className={cx("flex justify-around w100")}>
+
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                    {this.props.subTitleOne}
+                  </h2>
+
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                    {this.props.subTitleTwo}
+                  </h2>
+
+                </div>
+
+                <div className={cx("flex justify-around w100")}>
+
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
                     {this.props.subTitleThree}
                   </h2>
-                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi  HomePage__neon': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", { 'block HomePage__hi': this.state.showSubTitle === true }, { 'none': this.state.showSubTitle === false })}>
                     {this.props.subTitleFour}
                   </h2>
 
                 </div>
 
-                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white text-center mt2", { 'block HomePage__hi': this.state.showStuffLike === true }, { 'none': this.state.showStuffLike === false })}>to make stuff like this<span role="img" aria-label="">&nbsp;⏩</span></h2>
+                <h2 className={cx("HomePage__sub-headline title-sans-serif color-white text-center mt3", { 'block HomePage__hi': this.state.showStuffLike === true }, { 'none': this.state.showStuffLike === false })}>to make stuff like this<span role="img" aria-label="">&nbsp;⏩</span></h2>
 
                 <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif col-3 text-center self-center", {'block HomePage__email': this.state.showEmail === true }, {'none': this.state.showEmail === false })} href="mailto:jacksonhoffmanmusic@gmail.com">
 

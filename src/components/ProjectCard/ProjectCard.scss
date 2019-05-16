@@ -5,7 +5,6 @@
 
   &__overlay {
     opacity: 0;
-    color: color('black');
     -moz-transition: opacity $transition-duration-ultra-short ease-in-out;
     -webkit-transition: opacity $transition-duration-ultra-short ease-in-out;
     transition: opacity $transition-duration-ultra-short ease-in-out;
@@ -17,7 +16,7 @@
     }
 
     &:hover .ProjectCard__svg-container {
-      transform: scale(1.1);
+      transform: scale(1.5);
     }
 
     &:hover .ProjectCard__CTA {
@@ -31,6 +30,10 @@
     -moz-transition: transform $transition-duration-sorta-short ease-in-out;
     -webkit-transition: transform $transition-duration-sorta-short ease-in-out;
     transition: transform $transition-duration-sorta-short ease-in-out;
+
+    svg {
+      fill: map-get($colors, "black");
+    }
   }
 
   &__CTA {

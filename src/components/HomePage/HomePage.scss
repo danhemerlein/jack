@@ -52,19 +52,19 @@
   }
 
   &__neon {
-    -webkit-animation: neon5 $transition-duration-1s;
-    -moz-animation: neon5 $transition-duration-1s;
-    -ms-animation: neon5 $transition-duration-1s;
-    -o-animation: neon5 $transition-duration-1s;
-    animation: neon5 $transition-duration-1s;
+    -webkit-animation: neon5 $transition-duration-short;
+    -moz-animation: neon5 $transition-duration-short;
+    -ms-animation: neon5 $transition-duration-short;
+    -o-animation: neon5 $transition-duration-short;
+    animation: neon5 $transition-duration-short;
   }
 
   &__neon-box-shadow {
-    -webkit-animation: neon-box-shadow $transition-duration-1s;
-    -moz-animation: neon-box-shadow $transition-duration-1s;
-    -ms-animation: neon-box-shadow $transition-duration-1s;
-    -o-animation: neon-box-shadow $transition-duration-1s;
-    animation: neon-box-shadow $transition-duration-1s;
+    -webkit-animation: neon-box-shadow $transition-duration-med;
+    -moz-animation: neon-box-shadow $transition-duration-med;
+    -ms-animation: neon-box-shadow $transition-duration-med;
+    -o-animation: neon-box-shadow $transition-duration-med;
+    animation: neon-box-shadow $transition-duration-med;
   }
 
   svg {
@@ -73,14 +73,6 @@
   
   @media (min-width: 1024px) {
     height: 100vh;
-  }
-
-  &__neon-animation {
-    -webkit-animation: neon5 $transition-duration-short;
-    -moz-animation: neon5 $transition-duration-short;
-    -ms-animation: neon5 $transition-duration-short;
-    -o-animation: neon5 $transition-duration-short;
-    animation: neon5 $transition-duration-short;
   }
 
   &__headline {
