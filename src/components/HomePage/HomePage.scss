@@ -67,6 +67,10 @@
     animation: neon-box-shadow $transition-duration-med;
   }
 
+  &__texture-container {
+    border: 10px solid red;
+  }
+
   svg {
     fill: map-get($colors, "white");
   }

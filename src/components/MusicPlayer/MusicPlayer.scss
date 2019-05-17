@@ -2,11 +2,20 @@
 
 .MusicPlayer{
 
+  height: 50px;
+
   svg {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    fill:  map-get($colors, "white");
+    fill: map-get($colors, "white");
+
+    @media (min-width: 1024px) {
+      &:hover {
+        background-color: map-get($colors, "white");
+        fill: map-get($colors, "black");
+      }
+    }
   }
 
   &__icon-container {
