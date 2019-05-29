@@ -1,7 +1,16 @@
 .title-sans-serif {
-  font-family: 'Abel', sans-serif;
+  // font-family: 'Abel', sans-serif;
+  font-family: 'LiberalHandSans', sans-serif;
+}
+
+.name-font {
 }
 
 .outline-font {
   font-family: 'Londrina Outline', cursive;
+}
+
+@font-face {
+  font-family: "LiberalHandSans";
+  src: url('/assets/LiberalHandSans-Rg(OT).otf');
 }
