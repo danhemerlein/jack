@@ -22,7 +22,7 @@ class MusicPlayer extends Component {
   render() {
 
     return (
-      <div className="MusicPlayer w100 h100 flex bg-black color-white">
+      <div className="MusicPlayer w100 h100 flex color-white">
         <figure>
           <audio id="audio-player" preload="metadata"/>
         </figure>

@@ -199,17 +199,17 @@ export default class HomePage extends Component {
       })
     }, 4500);
 
-    setTimeout(() => {
-      this.setState({
-        neonBoxShadow: true
-      })
-    }, 5500);
+    // setTimeout(() => {
+    //   this.setState({
+    //     neonBoxShadow: true
+    //   })
+    // }, 5500);
 
     setTimeout(() => {
       this.setState({
         showEmail: true
       })
-    }, 7500);
+    }, 6000);
   }
 
   render() {
@@ -222,9 +222,12 @@ export default class HomePage extends Component {
     return (
       <div className={cx("HomePage w100")}>
 
-        <div className={cx("HomePage__texture-container w100")} style={{ backgroundImage: "url('/assets/concrete-wall-2.png')" }}>
+        <div className={cx("HomePage__texture-container w100 bg-light-black")} style={{ backgroundImage: "url('/assets/bg-18.png')" }}>
+        {/* <div className={cx("HomePage__texture-container w100 bg-black")}> */}
 
-          <div className={cx("HomePage__header w100 bg-black flex justify-between ")}>
+          <div className={cx("HomePage__test")}>
+
+          <div className={cx("HomePage__header w100 flex justify-between")}>
 
             <div className={cx("HomePage__header--name")}>
 
@@ -251,7 +254,7 @@ export default class HomePage extends Component {
 
               <img className={cx("HomePage__body--image-mobile col-12 sm:col-6")} src={imageURL} alt=""/>
 
-              <div className={cx("col-12 sm:col-6 p2 flex items-center bg-black justify-center sm:justify-start flex-col h100 none sm:block")}>
+              <div className={cx("col-12 sm:col-6 p2 flex items-center justify-center sm:justify-start flex-col h100 none sm:block")}>
 
                 <div className={cx("w100 text-center", {'block HomePage__hi': this.state.showHi === true }, {'none': this.state.showHi === false })}>
 
@@ -338,11 +341,11 @@ export default class HomePage extends Component {
 
                   </h2>
 
-                  <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif col-3 text-center self-center", 
+                  <a className={cx("HomePage__body--link mt2 p_5 color-white title-sans-serif col-3 text-center self-center", 
                   {'block HomePage__email': this.state.showEmail === true }, 
                   {'none': this.state.showEmail === false })} href="mailto:jacksonhoffmanmusic@gmail.com">
 
-                    <span>email me</span>
+                    <span className={cx("color-black")}>email me</span>
                     
                   </a>
 
@@ -350,7 +353,7 @@ export default class HomePage extends Component {
 
               </div>
 
-              <div className={cx("block sm:none bg-black p2 flex items-center flex-col justify-center")}>
+              <div className={cx("block sm:none p2 flex items-center flex-col justify-center")}>
 
                 <div className={cx("w100 text-center")}>
 
@@ -393,10 +396,10 @@ export default class HomePage extends Component {
 
                 </div>
 
-                <a className={cx("HomePage__body--link mt2 p_5 color-black title-sans-serif col-3 text-center self-center")} 
+                <a className={cx("HomePage__body--link mt2 p_5 color-white title-sans-serif col-3 text-center self-center")} 
                 href="mailto:jacksonhoffmanmusic@gmail.com">
 
-                  <span>email me</span>
+                  <span className={cx("color-black")}>email me</span>
 
                 </a>
 
@@ -404,8 +407,9 @@ export default class HomePage extends Component {
 
             </div>
 
-            <div className={cx("HomePage__body--projects-container flex flex-wrap", 
-            { 'HomePage__neon-box-shadow': this.state.neonBoxShadow === true })}>
+            {/* <div className={cx("HomePage__body--projects-container flex flex-wrap", 
+            { 'HomePage__neon-box-shadow': this.state.neonBoxShadow === true })}> */}
+            <div className={cx("HomePage__body--projects-container flex flex-wrap")}>
 
               {this.props.projects.map((project, key) => {
                 return <div key={key} className={cx("col-12 sm:col-6")}>
@@ -442,6 +446,8 @@ export default class HomePage extends Component {
               unMute={this.unMute}
             >
             </MusicPlayer>
+
+          </div>
 
           </div>
 

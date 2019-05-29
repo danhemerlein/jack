@@ -1,8 +1,10 @@
 $colors: (
-  "black": #000,
-  "white": #fff,
-  "grey": #828282,
-  'lime-dark': #20a854,
+  'black': #000,
+  'light-black': #231f20,
+  'white': #fff,
+  'grey': #828282,
+  'lime-dark': #318752,
+  'pink': #c29595,
 );
 
 @function color($color-name) {
