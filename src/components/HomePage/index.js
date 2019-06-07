@@ -26,7 +26,7 @@ export default class HomePage extends Component {
       showSubTitle: false,
       showStuffLike: false,
       showEmail: false,
-      neonBoxShadow: false,
+      showControls: false,
     };
 
   }
@@ -183,6 +183,12 @@ export default class HomePage extends Component {
 
     setTimeout(() => {
       this.setState({
+        showControls: true
+      })
+    }, 2000);
+
+    setTimeout(() => {
+      this.setState({
         showStuff: true
       })
     }, 2500);
@@ -199,12 +205,6 @@ export default class HomePage extends Component {
       })
     }, 4500);
 
-    // setTimeout(() => {
-    //   this.setState({
-    //     neonBoxShadow: true
-    //   })
-    // }, 5500);
-
     setTimeout(() => {
       this.setState({
         showEmail: true
@@ -220,7 +220,7 @@ export default class HomePage extends Component {
     const imageURL = this.props.backgroundImage.fields.file.url;
 
     return (
-      <div className={cx("HomePage w100")}>
+      <div className={cx("HomePage w100 relative")}>
 
         <div className={cx("HomePage__texture-container w100 bg-light-black")} style={{ backgroundImage: "url('/assets/bg-18.png')" }}>
         {/* <div className={cx("HomePage__texture-container w100 bg-black")}> */}
@@ -341,11 +341,11 @@ export default class HomePage extends Component {
 
                   </h2>
 
-                  <a className={cx("HomePage__body--link mt2 p_5 color-white title-sans-serif col-3 text-center self-center", 
+                  <a className={cx("HomePage__body--link mt2 p_5 title-sans-serif col-3 text-center self-center", 
                   {'block HomePage__email': this.state.showEmail === true }, 
                   {'none': this.state.showEmail === false })} href="mailto:jacksonhoffmanmusic@gmail.com">
 
-                    <span className={cx("color-black")}>email me</span>
+                    <span className={cx("")}>email me</span>
                     
                   </a>
 
@@ -396,10 +396,10 @@ export default class HomePage extends Component {
 
                 </div>
 
-                <a className={cx("HomePage__body--link mt2 p_5 color-white title-sans-serif col-3 text-center self-center")} 
+                  <a className={cx("HomePage__body--link mt2 p_5  title-sans-serif col-3 text-center self-center")} 
                 href="mailto:jacksonhoffmanmusic@gmail.com">
 
-                  <span className={cx("color-black")}>email me</span>
+                  <span className={cx("")}>email me</span>
 
                 </a>
 
@@ -429,7 +429,9 @@ export default class HomePage extends Component {
 
           </div>
 
-          <div className={cx("HomePage__footer")}>
+          <div className={cx("HomePage__footer",
+            { 'HomePage__footer--show': this.state.showControls === true },
+            { 'HomePage__footer--hide': this.state.showControls === false })}>
 
             <MusicPlayer
               tunes={this.props.tunes}
@@ -447,7 +449,7 @@ export default class HomePage extends Component {
             >
             </MusicPlayer>
 
-          </div>
+            </div>
 
           </div>
 
