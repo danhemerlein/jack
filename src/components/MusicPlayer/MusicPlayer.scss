@@ -10,13 +10,23 @@
     cursor: pointer;
     fill: map-get($colors, "white");
 
+    
+  }
+
+
+  &__icon {
     @media (min-width: 1024px) {
       &:hover {
         background-color: map-get($colors, "white");
-        fill: map-get($colors, "black");
+
+        svg {
+          background-color: map-get($colors, "white");
+          fill: map-get($colors, "black");
+        }
       }
     }
   }
+
 
   &__icon-container {
     width: 50%;

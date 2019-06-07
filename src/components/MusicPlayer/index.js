@@ -30,32 +30,67 @@ class MusicPlayer extends Component {
         <div className="flex w100">
 
           <div className="MusicPlayer__icon-container col-3 flex items-center justify-center">
-          
-            <RewindIcon
-              clickHandler={this.props.prevSong}
-            ></RewindIcon>
-            <PlayIcon 
-              clickHandler={this.props.play}
-            ></PlayIcon>
-            <PauseIcon
-              clickHandler={this.props.pause}
-            ></PauseIcon>
-            <FastForwardIcon
-              id="next-song"
-              clickHandler={this.props.nextSong}
-            ></FastForwardIcon>
 
-            <div className="ml1">
-              <div className={cx({ 'block': this.props.muted === false }, { 'none': this.props.muted === true })}>
+            <div className="MusicPlayer__icon flex items-center h100">
+            
+              <RewindIcon
+
+                clickHandler={this.props.prevSong}
+
+              ></RewindIcon>
+
+            </div>
+
+            <div className="MusicPlayer__icon flex items-center h100">
+
+              <PlayIcon 
+  
+                clickHandler={this.props.play}
+  
+              ></PlayIcon>
+
+            </div>
+
+            <div className="MusicPlayer__icon flex items-center h100">
+
+              <PauseIcon
+  
+                clickHandler={this.props.pause}
+  
+              ></PauseIcon>
+
+            </div>
+
+            <div className="MusicPlayer__icon flex items-center h100">
+
+              <FastForwardIcon
+  
+                id="next-song"
+                clickHandler={this.props.nextSong}
+  
+              ></FastForwardIcon>
+
+            </div>
+
+            <div className="ml1 h100">
+              <div className={cx("MusicPlayer__icon flex items-center h100", { 'block': this.props.muted === false }, { 'none': this.props.muted === true })}>
+
                 <MuteIcon
+
                   clickHandler={this.props.mute}
+
                 ></MuteIcon>
+
               </div>
 
-              <div className={cx({ 'block': this.props.muted === true }, { 'none': this.props.muted === false })}>
+              <div className={cx("MusicPlayer__icon flex items - center h100", { 'block': this.props.muted === true }, { 'none': this.props.muted === false })}>
+
                 <SoundOnIcon
+
                   clickHandler={this.props.unMute}
+
                 ></SoundOnIcon>
+
               </div>
             </div>
 
