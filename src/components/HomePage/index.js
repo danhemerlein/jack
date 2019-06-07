@@ -210,11 +210,25 @@ export default class HomePage extends Component {
         showEmail: true
       })
     }, 6000);
+
+    const libreralHand = new FontFace('LiberalHandSans', `url(${this.props.font.fields.file.url})`);
+
+    libreralHand.load().then(function (loadedHand) {
+      document.fonts.add(loadedHand);
+      document.body.style.fontFamily = '"LiberalHandSans", sans-serif';
+    }).catch(function (error) {
+      console.error('an error occured while loading the font');
+    });
+
   }
 
   render() {
     const backgroundImage = {
       backgroundImage: "url(" + this.props.backgroundImage.fields.file.url + ")"
+    }; 
+    
+    const backgroundTexture = {
+      backgroundImage: "url(" + this.props.backgroundTexture.fields.file.url + ")"
     };
 
     const imageURL = this.props.backgroundImage.fields.file.url;
@@ -222,7 +236,7 @@ export default class HomePage extends Component {
     return (
       <div className={cx("HomePage w100 relative")}>
 
-        <div className={cx("HomePage__texture-container w100 bg-light-black")} style={{ backgroundImage: "url('/assets/bg-18.png')" }}>
+        <div className={cx("HomePage__texture-container w100 bg-light-black")} style={backgroundTexture}>
         {/* <div className={cx("HomePage__texture-container w100 bg-black")}> */}
 
           <div className={cx("HomePage__test")}>
