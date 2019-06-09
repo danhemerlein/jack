@@ -1,3 +1,4 @@
+
 @import "../../styles/app.scss";
 
 .ProjectCard{
@@ -8,6 +9,11 @@
     -moz-transition: opacity $transition-duration-ultra-short ease-in-out;
     -webkit-transition: opacity $transition-duration-ultra-short ease-in-out;
     transition: opacity $transition-duration-ultra-short ease-in-out;
+
+
+    @media (min-width: 1024px) and (max-width: 1245px) {
+      font-size: 0.75rem
+    }
   }
 
   &__container {

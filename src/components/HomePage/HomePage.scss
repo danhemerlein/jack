@@ -7,6 +7,8 @@
   -o-animation: fadein $transition-duration-1s;
   animation: fadein $transition-duration-1s;
 
+  -webkit-overflow-scrolling: touch;
+
   overflow: hidden;  
   height: auto;
 
@@ -16,6 +18,12 @@
     -ms-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
     -o-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
     animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+
+    font-size: 2.25rem;
+    
+    @media (min-width: 640px) {
+      font-size: 6rem;
+    }
   }
 
   &__wide-right-fade {
@@ -33,6 +41,12 @@
     -ms-animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
     -o-animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
     animation: fade-in-left $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
+
+    font-size: 2.25rem;
+    
+    @media (min-width: 640px) {
+      font-size: 6rem;
+    }
   }
 
   &__hi {
@@ -167,13 +181,26 @@
       background: map-get($colors, "white");
       text-decoration: none;
       color: map-get($colors, "black");
-
+      
       &:hover {
         background-color: map-get($colors, "grey");
+        box-shadow: -5px 5px 4px map-get($colors, "grey");
 
         > span {
           color: map-get($colors, "white");
         }
+      }
+    }
+
+    &--link-desktop {
+      width: 25%;
+
+      @media (min-width: 1024px) and (max-width: 1266px) {
+        width: 33.33%;
+      }
+
+       @media (min-width: 640px) and (max-width: 858px) {
+        width: 50%;
       }
     }
   }

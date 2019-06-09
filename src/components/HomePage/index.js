@@ -237,7 +237,6 @@ export default class HomePage extends Component {
       <div className={cx("HomePage w100 relative")}>
 
         <div className={cx("HomePage__texture-container w100 bg-light-black")} style={backgroundTexture}>
-        {/* <div className={cx("HomePage__texture-container w100 bg-black")}> */}
 
           <div className={cx("HomePage__test")}>
 
@@ -247,10 +246,10 @@ export default class HomePage extends Component {
 
               <div className={cx("p1 flex items-center flex-col")}>
 
-                <h1 className={cx("HomePage__headline title-sans-serif color-white")}>
+                <h1 className={cx("HomePage__headline title-sans-serif")}>
 
-                  <span className={cx("HomePage__first-name inline-block")}>{this.props.firstName}</span>
-                  <span className={cx("HomePage__last-name inline-block")}>&nbsp;{this.props.lastName}</span>
+                  <span className={cx("HomePage__first-name inline-block  color-white")}>{this.props.firstName}</span>
+                    <span className={cx("HomePage__last-name inline-block  color-white")}>&nbsp;{this.props.lastName}</span>
 
                 </h1>
 
@@ -355,7 +354,7 @@ export default class HomePage extends Component {
 
                   </h2>
 
-                  <a className={cx("HomePage__body--link mt2 p_5 title-sans-serif col-3 text-center self-center", 
+                    <a className={cx("HomePage__body--link HomePage__body--link-desktop mt2 p_5 title-sans-serif text-center self-center", 
                   {'block HomePage__email': this.state.showEmail === true }, 
                   {'none': this.state.showEmail === false })} href="mailto:jacksonhoffmanmusic@gmail.com">
 
@@ -410,10 +409,10 @@ export default class HomePage extends Component {
 
                 </div>
 
-                  <a className={cx("HomePage__body--link mt2 p_5  title-sans-serif col-3 text-center self-center")} 
+                  <a className={cx("HomePage__body--link mt2 p_5  title-sans-serif col-4 text-center self-center")} 
                 href="mailto:jacksonhoffmanmusic@gmail.com">
 
-                  <span className={cx("")}>email me</span>
+                  <span>email me</span>
 
                 </a>
 
@@ -421,8 +420,6 @@ export default class HomePage extends Component {
 
             </div>
 
-            {/* <div className={cx("HomePage__body--projects-container flex flex-wrap", 
-            { 'HomePage__neon-box-shadow': this.state.neonBoxShadow === true })}> */}
             <div className={cx("HomePage__body--projects-container flex flex-wrap")}>
 
               {this.props.projects.map((project, key) => {

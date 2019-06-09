@@ -11,8 +11,8 @@ export default class ProjectCard extends Component {
   render() {
 
     let longRoles = false;
-    if (this.props.roles.split('/').length > 3) {
-      longRoles = true; 
+    if (this.props.roles.split('/').length > 2) {
+      longRoles = true;
     }
   
     return (
@@ -23,7 +23,7 @@ export default class ProjectCard extends Component {
             <Image src={this.props.image.fields.file.url} alt={this.props.image.fields.file.url} />
           </div>
 
-          <div className="ProjectCard__overlay bg-white flex justify-center flex-col items-center absolute l0 t0 r0 b0 ">
+          <div className="ProjectCard__overlay bg-white flex justify-center flex-col items-center absolute l0 t0 r0 b0">
 
             <div className={cx("bold title-sans-serif")}>
               {this.props.title}
@@ -40,7 +40,8 @@ export default class ProjectCard extends Component {
               </div>
 
               <div className={cx("title-sans-serif text-center")}>
-                {this.props.roles.split('/')[2]}/
+                {this.props.roles.split('/')[2]}
+                <span className={cx("", { 'inline-block': this.props.roles.split('/').length === 4 }, { 'none': this.props.roles.split('/').length !== 4 })}>/</span>
                 {this.props.roles.split('/')[3]}
               </div>
 
