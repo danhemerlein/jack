@@ -245,11 +245,11 @@
         transform: translateX(93%);
       }
 
-      .MusicPlayer__icon {
-        &:nth-of-type(2) {
-          display: none;
-        }
-      }
+      // .MusicPlayer__icon {
+      //   &:nth-of-type(2) {
+      //     display: none;
+      //   }
+      // }
     }
     
     &--show {

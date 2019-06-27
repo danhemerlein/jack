@@ -78,9 +78,11 @@
 
   &__mute-unmute-container {
       margin: 0;
+      display: none;
 
       @media (min-width: 1024px) {
         margin-left: 1rem;
+        display: none;
       }
   }
 }
