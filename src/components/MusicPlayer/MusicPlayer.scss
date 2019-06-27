@@ -23,6 +23,15 @@
       }
     }
 
+    &--arrow {
+      display: flex;
+
+      @media (min-width: 1024px) {
+        display: none;
+      }
+
+    }
+
     &--arrow-rotated {
       transform: rotate(180deg);
       transition: transform 0.75s cubic-bezier(0.25, 0.2, 0, 1);
@@ -32,16 +41,9 @@
       transform: rotate(0deg);
       transition: transform 0.75s cubic-bezier(0.25, 0.2, 0, 1); 
     }
-
-    &--arrow {
-      display: flex;
-
-      @media (min-width: 1024px) {
-        display: none;
-      }
-
-    }
   }
+
+
 
   &__icon-container {
     width: 50%;

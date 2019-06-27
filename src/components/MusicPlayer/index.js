@@ -18,6 +18,7 @@ class MusicPlayer extends Component {
   componentDidMount() {
     var audioPlayer = document.getElementById("audio-player");
     this.props.initFunction(audioPlayer)
+
   }
   
   render() {
