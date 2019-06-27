@@ -486,6 +486,7 @@ export default class HomePage extends Component {
               mute={this.mute}
               unMute={this.unMute}
               toggleMobileAudioControls={this.toggleMobileAudioControls}
+              mobileControlsOpen={this.state.showMobileControls}
             >
             </MusicPlayer>
 

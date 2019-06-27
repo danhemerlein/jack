@@ -32,7 +32,7 @@ class MusicPlayer extends Component {
 
           <div className="MusicPlayer__icon-container flex items-center relative">
 
-            <div className="MusicPlayer__icon--arrow flex items-center h100 absolute l0">
+            <div className={cx("MusicPlayer__icon--arrow flex items-center h100 absolute l0", { 'MusicPlayer__icon--arrow-not-rotated': this.props.mobileControlsOpen === false }, { 'MusicPlayer__icon--arrow-rotated': this.props.mobileControlsOpen === true })}>
 
               <ArrowIcon
 
@@ -84,7 +84,7 @@ class MusicPlayer extends Component {
 
             </div>
 
-            <div className="ml1 h100">
+            <div className="MusicPlayer__mute-unmute-container h100">
               <div className={cx("MusicPlayer__icon flex items-center h100", { 'flex': this.props.muted === false }, { 'none': this.props.muted === true })}>
 
                 <MuteIcon
