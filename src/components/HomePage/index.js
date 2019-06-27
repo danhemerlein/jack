@@ -26,7 +26,7 @@ export default class HomePage extends Component {
       showSubTitle: false,
       showStuffLike: false,
       showEmail: false,
-      showControls: false,
+      showMobileControls: false,
     };
 
   }
@@ -145,6 +145,12 @@ export default class HomePage extends Component {
 
   }
 
+  toggleMobileAudioControls = () => {
+    this.setState({
+      showMobileControls: !this.state.showMobileControls,
+    })
+  }
+
   componentDidMount() {
     const homePageBody = document.querySelector('.HomePage__body');
 
@@ -183,12 +189,6 @@ export default class HomePage extends Component {
 
     setTimeout(() => {
       this.setState({
-        showControls: true
-      })
-    }, 2000);
-
-    setTimeout(() => {
-      this.setState({
         showStuff: true
       })
     }, 2500);
@@ -211,9 +211,9 @@ export default class HomePage extends Component {
       })
     }, 6000);
 
-    const libreralHand = new FontFace('LiberalHandSans', `url(${this.props.font.fields.file.url})`);
+    const liberalHand = new FontFace('LiberalHandSans', `url(${this.props.font.fields.file.url})`);
 
-    libreralHand.load().then(function (loadedHand) {
+    liberalHand.load().then(function (loadedHand) {
       document.fonts.add(loadedHand);
       document.body.style.fontFamily = '"LiberalHandSans", sans-serif';
     }).catch(function (error) {
@@ -234,11 +234,9 @@ export default class HomePage extends Component {
     const imageURL = this.props.backgroundImage.fields.file.url;
 
     return (
-      <div className={cx("HomePage w100 relative")}>
+      <div className="HomePage relative">
 
         <div className={cx("HomePage__texture-container w100 bg-light-black")} style={backgroundTexture}>
-
-          <div className={cx("HomePage__test")}>
 
           <div className={cx("HomePage__header w100 flex justify-between")}>
 
@@ -249,7 +247,7 @@ export default class HomePage extends Component {
                 <h1 className={cx("HomePage__headline title-sans-serif")}>
 
                   <span className={cx("HomePage__first-name inline-block  color-white")}>{this.props.firstName}</span>
-                    <span className={cx("HomePage__last-name inline-block  color-white")}>&nbsp;{this.props.lastName}</span>
+                  <span className={cx("HomePage__last-name inline-block  color-white")}>&nbsp;{this.props.lastName}</span>
 
                 </h1>
 
@@ -440,9 +438,39 @@ export default class HomePage extends Component {
 
           </div>
 
-          <div className={cx("HomePage__footer",
-            { 'HomePage__footer--show': this.state.showControls === true },
-            { 'HomePage__footer--hide': this.state.showControls === false })}>
+          <div className="HomePage__footer-desktop">
+
+            <div className={cx("HomePage__footer")}>
+
+              <MusicPlayer
+                tunes={this.props.tunes}
+                muted={this.state.muted}
+                timeElapsed={this.state.timeElapsed}
+                duration={this.state.duration}
+                activeTitle={this.state.activeTitle}
+                initFunction={this.initPlayer}
+                prevSong={this.prevSong}
+                play={this.play}
+                pause={this.pause}
+                nextSong={this.nextSong}
+                mute={this.mute}
+                unMute={this.unMute}
+              >
+              </MusicPlayer>
+
+              </div>
+
+            </div>
+
+        </div>
+
+
+
+          <div className={cx("HomePage__footer-mobile",
+            { 'HomePage__footer-mobile--show': this.state.showMobileControls === true },
+            { 'HomePage__footer-mobile--hide': this.state.showMobileControls === false })}>
+
+          <div className={cx("HomePage__footer")}>
 
             <MusicPlayer
               tunes={this.props.tunes}
@@ -457,10 +485,9 @@ export default class HomePage extends Component {
               nextSong={this.nextSong}
               mute={this.mute}
               unMute={this.unMute}
+              toggleMobileAudioControls={this.toggleMobileAudioControls}
             >
             </MusicPlayer>
-
-            </div>
 
           </div>
 

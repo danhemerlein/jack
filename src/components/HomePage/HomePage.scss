@@ -7,11 +7,9 @@
   -o-animation: fadein $transition-duration-1s;
   animation: fadein $transition-duration-1s;
 
-  -webkit-overflow-scrolling: touch;
-
   overflow: hidden;  
   height: auto;
-
+ 
   &__first-name {
     -webkit-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
     -moz-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
@@ -205,17 +203,65 @@
     }
   }
 
-  &__footer {
+  // &__footer {
+  //   position: absolute;
+  //   width: 100%;
+  //   transition: transform 2s cubic-bezier(0.25, 0.2, 0, 1);
+
+  //   &--hide {
+  //     transform: translateY(100%);
+  //   }
+    
+  //   &--show {
+  //     transform: translateY(0);
+  //   }
+  // }
+
+  &__footer-desktop {
+    display: none;
+    color: map-get($colors, "white");
+
+    @media (min-width: 1024px) {
+      display: block
+    }
+  }
+
+  &__footer-mobile {
+    display: block;
     position: absolute;
+    top: 20%;
+    right: 0;
     width: 100%;
+    background: map-get($colors, "white");
+    z-index: 1;
     transition: transform 2s cubic-bezier(0.25, 0.2, 0, 1);
 
     &--hide {
-      transform: translateY(100%);
+      transform: translateX(90%);
+      cursor: pointer;
+
+      .MusicPlayer__icon {
+        &:nth-of-type(2) {
+          display: none;
+        }
+      }
     }
     
     &--show {
-      transform: translateY(0);
+      transform: translateX(0);
     }
+    
+    .MusicPlayer__data-container {
+      color: map-get($colors, "black");
+    }
+    
+    svg {
+      stroke: map-get($colors, "black");
+    }
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
   }
 }

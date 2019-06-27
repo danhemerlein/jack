@@ -11,6 +11,7 @@ import RewindIcon from 'components/icons/Rewind';
 import FastForwardIcon from 'components/icons/FastForward';
 import MuteIcon from 'components/icons/Mute';
 import SoundOnIcon from 'components/icons/SoundOn';
+import ArrowIcon from 'components/icons/Arrow';
 
 class MusicPlayer extends Component {
 
@@ -22,14 +23,25 @@ class MusicPlayer extends Component {
   render() {
 
     return (
-      <div className="MusicPlayer w100 h100 flex color-white">
+      <div className="MusicPlayer w100 h100 flex">
         <figure>
           <audio id="audio-player" preload="metadata"/>
         </figure>
 
         <div className="flex w100">
 
-          <div className="MusicPlayer__icon-container col-3 flex items-center justify-center">
+          <div className="MusicPlayer__icon-container flex items-center relative">
+
+            <div className="MusicPlayer__icon--arrow flex items-center h100 absolute l0">
+
+              <ArrowIcon
+
+                clickHandler={this.props.toggleMobileAudioControls}
+
+              ></ArrowIcon>
+
+            </div>
+
 
             <div className="MusicPlayer__icon flex items-center h100">
             
@@ -73,7 +85,7 @@ class MusicPlayer extends Component {
             </div>
 
             <div className="ml1 h100">
-              <div className={cx("MusicPlayer__icon flex items-center h100", { 'block': this.props.muted === false }, { 'none': this.props.muted === true })}>
+              <div className={cx("MusicPlayer__icon flex items-center h100", { 'flex': this.props.muted === false }, { 'none': this.props.muted === true })}>
 
                 <MuteIcon
 
@@ -83,7 +95,7 @@ class MusicPlayer extends Component {
 
               </div>
 
-              <div className={cx("MusicPlayer__icon flex items - center h100", { 'block': this.props.muted === true }, { 'none': this.props.muted === false })}>
+              <div className={cx("MusicPlayer__icon items-center h100", { 'flex': this.props.muted === true }, { 'none': this.props.muted === false })}>
 
                 <SoundOnIcon
 
