@@ -54,7 +54,8 @@ class MusicPlayer extends Component {
 
             </div>
 
-            <div className="MusicPlayer__icon flex items-center h100">
+            <div className={cx("MusicPlayer__icon flex items-center h100",
+              { 'MusicPlayer__icon--audio-playing': this.props.playingAudio === true })}>
 
               <PlayIcon 
   
@@ -64,7 +65,8 @@ class MusicPlayer extends Component {
 
             </div>
 
-            <div className="MusicPlayer__icon flex items-center h100">
+            <div className={cx("MusicPlayer__icon flex items-center h100",
+              { 'MusicPlayer__icon--audio-playing': this.props.playingAudio === false })}>
 
               <PauseIcon
   

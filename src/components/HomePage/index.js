@@ -27,6 +27,7 @@ export default class HomePage extends Component {
       showStuffLike: false,
       showEmail: false,
       showMobileControls: false,
+      playingAudio: undefined,
     };
 
   }
@@ -73,6 +74,9 @@ export default class HomePage extends Component {
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.play();
     this.updateTimeElapsed();
+    this.setState({
+      playingAudio: true,
+    })
   }
 
   updateTimeElapsed = () => {
@@ -89,6 +93,10 @@ export default class HomePage extends Component {
   pause = () => {
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.pause();
+
+    this.setState({
+      playingAudio: false,
+    })
   }
 
   mute = () => {
@@ -455,6 +463,7 @@ export default class HomePage extends Component {
                 nextSong={this.nextSong}
                 mute={this.mute}
                 unMute={this.unMute}
+                playingAudio={this.state.playingAudio}
               >
               </MusicPlayer>
 
@@ -487,6 +496,7 @@ export default class HomePage extends Component {
               unMute={this.unMute}
               toggleMobileAudioControls={this.toggleMobileAudioControls}
               mobileControlsOpen={this.state.showMobileControls}
+              playingAudio={this.state.playingAudio}
             >
             </MusicPlayer>
 

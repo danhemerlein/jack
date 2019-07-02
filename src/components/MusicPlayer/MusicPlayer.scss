@@ -8,7 +8,11 @@
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    fill: map-get($colors, "white");
+    fill: map-get($colors, "black");
+    
+    @media (min-width: 1024px) {
+      fill: map-get($colors, "white");
+    }
   }
 
   &__icon {
@@ -40,6 +44,24 @@
     &--arrow-not-rotated {
       transform: rotate(0deg);
       transition: transform 0.75s cubic-bezier(0.25, 0.2, 0, 1); 
+    }
+
+    &--audio-playing {
+      background-color: map-get($colors, "black");
+      
+      @media (min-width: 1024px) {
+        background-color: map-get($colors, "white");
+      }
+
+      svg {
+        background-color: map-get($colors, "black");
+        fill: map-get($colors, "white");
+
+        @media (min-width: 1024px) {
+          background-color: map-get($colors, "white");
+          fill: map-get($colors, "black");
+        }
+      }
     }
   }
 
@@ -82,7 +104,7 @@
 
       @media (min-width: 1024px) {
         margin-left: 1rem;
-        display: none;
+        display: block;
       }
   }
 }
