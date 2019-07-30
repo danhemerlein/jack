@@ -4,9 +4,9 @@ export default function secondsToHms(d) {
   let s = Math.floor(d % 3600 % 60);
 
   if (s < 10) {
-    return Number(m) + ":" + "0" + Number(s);
+    return Number(m) + ":0" + Number(s);
   } else {
-    return Number(m) + ":"+ Number(s);
+    return Number(m) + ":" + Number(s);
   }
 
 }

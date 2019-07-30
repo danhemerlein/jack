@@ -11,7 +11,7 @@ class MainContainer extends ContainerBase {
   });
 
   model = () => {
-    return this.client.getEntries().then(response => response.items[0]);
+    return this.client.getEntries().then(response => response.items[5]);
   };
 }
 
