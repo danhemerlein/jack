@@ -2,7 +2,6 @@
   "name": "jack",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://danhemerlein.github.io/jack/",
   "dependencies": {
     "classnames": "^2.2.6",
     "contentful": "^7.5.1",
