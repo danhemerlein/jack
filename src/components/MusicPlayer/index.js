@@ -26,7 +26,7 @@ class MusicPlayer extends Component {
     return (
       <div className="MusicPlayer w100 h100 flex">
         <figure>
-          <audio id="audio-player" preload="metadata"/>
+          <audio id="audio-player" preload="none"/>
         </figure>
 
         <div className="flex w100">
