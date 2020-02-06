@@ -36,7 +36,7 @@ export default class HomePage extends Component {
     const homePageBody = document.querySelector('.HomePage__body');
     const musicPlayer = document.querySelector('.MusicPlayer');
     const header = document.querySelector('.HomePage__header');
-    
+
     const hpBodyHeight = (window.innerHeight - (musicPlayer.offsetHeight + header.offsetHeight));
 
     homePageBody.style.height = (hpBodyHeight) + "px";
@@ -58,12 +58,13 @@ export default class HomePage extends Component {
       activeTitle: this.state.tunes[index].fields.title,
     })
 
-    audioPlayer.src = this.state.tunes[index].fields.file.url;
+    audioPlayer.src = this.state.tunes[index].fields.audio.fields.file.url;
     this.play();
   };
 
   initPlayer = (player) => {
-    player.src = this.state.tunes[0].fields.file.url;
+    console.log(this.state.tunes[0].fields.audio.fields.file.url);
+    player.src = this.state.tunes[0].fields.audio.fields.file.url;
 
     this.setState({
       activeTitle: this.state.tunes[0].fields.title,
@@ -233,8 +234,8 @@ export default class HomePage extends Component {
   render() {
     const backgroundImage = {
       backgroundImage: "url(" + this.props.backgroundImage.fields.file.url + ")"
-    }; 
-    
+    };
+
     const backgroundTexture = {
       backgroundImage: "url(" + this.props.backgroundTexture.fields.file.url + ")"
     };
@@ -282,7 +283,7 @@ export default class HomePage extends Component {
                     Hi I'm Jack <span role="img" aria-label="">👋</span>
 
                   </h2>
-    
+
                   <h2 className={cx("HomePage__sub-headline title-sans-serif color-white")}>
 
                     I live in Queens <span role="img" aria-label="">👑</span>
@@ -297,8 +298,8 @@ export default class HomePage extends Component {
 
                     <h2 className={cx("HomePage__sub-headline title-sans-serif color-white text-center")}>
 
-                      <span className={cx("my3", 
-                      { 'block HomePage__hi': this.state.showStuff === true }, 
+                      <span className={cx("my3",
+                      { 'block HomePage__hi': this.state.showStuff === true },
                       { 'none': this.state.showStuff === false })}>
 
                         I do stuff like:
@@ -311,36 +312,36 @@ export default class HomePage extends Component {
 
                   <div className={cx("justify-around w100 none sm:flex")}>
 
-                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", 
-                    { 'block HomePage__hi': this.state.showSubTitle === true }, 
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold",
+                    { 'block HomePage__hi': this.state.showSubTitle === true },
                     { 'none': this.state.showSubTitle === false })}>
 
                       {this.props.subTitleOne}
 
                     </h2>
 
-                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", 
-                    { 'block HomePage__hi': this.state.showSubTitle === true }, 
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold",
+                    { 'block HomePage__hi': this.state.showSubTitle === true },
                     { 'none': this.state.showSubTitle === false })}>
 
                       {this.props.subTitleTwo}
-                      
+
                     </h2>
 
                   </div>
 
                   <div className={cx("justify-around w100 none sm:flex")}>
 
-                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", 
-                    { 'block HomePage__hi': this.state.showSubTitle === true }, 
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold",
+                    { 'block HomePage__hi': this.state.showSubTitle === true },
                     { 'none': this.state.showSubTitle === false })}>
 
                       {this.props.subTitleThree}
 
                     </h2>
 
-                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold", 
-                    { 'block HomePage__hi': this.state.showSubTitle === true }, 
+                    <h2 className={cx("HomePage__sub-headline title-sans-serif color-white bold",
+                    { 'block HomePage__hi': this.state.showSubTitle === true },
                     { 'none': this.state.showSubTitle === false })}>
 
                       {this.props.subTitleFour}
@@ -349,8 +350,8 @@ export default class HomePage extends Component {
 
                   </div>
 
-                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white text-center mt3", 
-                  { 'block HomePage__hi': this.state.showStuffLike === true }, 
+                  <h2 className={cx("HomePage__sub-headline title-sans-serif color-white text-center mt3",
+                  { 'block HomePage__hi': this.state.showStuffLike === true },
                   { 'none': this.state.showStuffLike === false })}>
 
                     to make stuff like this
@@ -360,12 +361,12 @@ export default class HomePage extends Component {
 
                   </h2>
 
-                    <a className={cx("HomePage__body--link HomePage__body--link-desktop mt2 p_5 title-sans-serif text-center self-center", 
-                  {'block HomePage__email': this.state.showEmail === true }, 
+                    <a className={cx("HomePage__body--link HomePage__body--link-desktop mt2 p_5 title-sans-serif text-center self-center",
+                  {'block HomePage__email': this.state.showEmail === true },
                   {'none': this.state.showEmail === false })} href="mailto:jacksonhoffmanmusic@gmail.com">
 
                     <span className={cx("")}>email me</span>
-                    
+
                   </a>
 
                 </div>
@@ -415,7 +416,7 @@ export default class HomePage extends Component {
 
                 </div>
 
-                  <a className={cx("HomePage__body--link mt2 p_5  title-sans-serif col-4 text-center self-center")} 
+                  <a className={cx("HomePage__body--link mt2 p_5  title-sans-serif col-4 text-center self-center")}
                 href="mailto:jacksonhoffmanmusic@gmail.com">
 
                   <span>email me</span>
