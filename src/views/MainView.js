@@ -1,21 +1,20 @@
-import React from 'react';
-import get from 'utils/get';
-
-import HomePage from 'components/HomePage';
+import React from 'react'
+import HomePage from '../components/HomePage'
+import { get } from '../utils'
 
 const MainView = ({ model }) => {
-  if (!model || model.isError) return <h1>Oops, something went wrong!</h1>;
-  let homePage = [];
-  let music = [];
-   for (let i = 0; i < model.length; i++) {
-     const element = model[i];
+  if (!model || model.isError) return <h1>Oops, something went wrong!</h1>
+  let homePage = []
+  let music = []
+  for (let i = 0; i < model.length; i++) {
+    const element = model[i]
 
     if ('artist' in element.fields) {
-      music.push(element);
+      music.push(element)
     } else {
-      homePage = element;
+      homePage = element
     }
-   }
+  }
 
   return (
     <div className='MainView'>
@@ -34,10 +33,9 @@ const MainView = ({ model }) => {
         cta={get(homePage, 'fields.projectCardCta')}
         font={get(homePage, 'fields.font')}
         backgroundTexture={get(homePage, 'fields.backgroundTexture')}
-        >
-      </HomePage>
+      ></HomePage>
     </div>
-  );
-};
+  )
+}
 
-export default MainView;
+export default MainView
