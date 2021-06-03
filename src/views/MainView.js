@@ -16,19 +16,14 @@ const MainView = ({ model }) => {
     }
   }
 
+  console.log(music)
+
   return (
     <div className='MainView'>
       <HomePage
-        firstName={get(homePage, 'fields.firstName', {})}
-        lastName={get(homePage, 'fields.lastName', {})}
         backgroundImage={get(homePage, 'fields.backgroundImage', {})}
         projects={get(homePage, 'fields.projects.fields', [])}
         tunes={music}
-        bio={get(homePage, 'fields.bio')}
-        subTitleOne={get(homePage, 'fields.subTitleOne')}
-        subTitleTwo={get(homePage, 'fields.subTitleTwo')}
-        subTitleThree={get(homePage, 'fields.subTitleThree')}
-        subTitleFour={get(homePage, 'fields.subTitleFour')}
         artworkArray={get(homePage, 'fields.musicArtwork')}
         cta={get(homePage, 'fields.projectCardCta')}
         font={get(homePage, 'fields.font')}

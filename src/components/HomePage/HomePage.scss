@@ -1,6 +1,5 @@
 @import "../../styles/app.scss";
 
-
 .HomePage {
   -webkit-animation: fadein $transition-duration-1s;
   -moz-animation: fadein $transition-duration-1s;
@@ -132,7 +131,7 @@
       width: 100%;
 
       @media (min-width: 1024px) {
-        width: 66.66%
+        width: 50%
       }
 
     }
@@ -168,7 +167,7 @@
       width: 100%;
 
       @media (min-width: 1024px) {
-        width: 33.33%;
+        width: 50%;
         overflow-y: scroll;
         overflow-x: hidden;
       }

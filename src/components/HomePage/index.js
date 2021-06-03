@@ -46,7 +46,9 @@ export default class HomePage extends Component {
   }
 
   selectSong = (index) => {
-    var audioPlayer = document.getElementById('audio-player')
+    const audioPlayer = document.getElementById('audio-player')
+
+    console.log(index)
 
     this.setState({
       activeIndex: index,
@@ -58,7 +60,6 @@ export default class HomePage extends Component {
   }
 
   initPlayer = (player) => {
-    console.log(this.state.tunes[0].fields.audio.fields.file.url)
     player.src = this.state.tunes[0].fields.audio.fields.file.url
 
     this.setState({
@@ -67,7 +68,7 @@ export default class HomePage extends Component {
   }
 
   play = () => {
-    var audioPlayer = document.getElementById('audio-player')
+    const audioPlayer = document.getElementById('audio-player')
     audioPlayer.play()
     this.updateTimeElapsed()
     this.setState({
@@ -76,7 +77,7 @@ export default class HomePage extends Component {
   }
 
   updateTimeElapsed = () => {
-    var audioPlayer = document.getElementById('audio-player')
+    const audioPlayer = document.getElementById('audio-player')
     setInterval(() => {
       this.setState({
         timeElapsed: audioPlayer.currentTime,
@@ -85,7 +86,7 @@ export default class HomePage extends Component {
   }
 
   pause = () => {
-    var audioPlayer = document.getElementById('audio-player')
+    const audioPlayer = document.getElementById('audio-player')
     audioPlayer.pause()
 
     this.setState({
@@ -241,177 +242,78 @@ export default class HomePage extends Component {
     return (
       <div className='HomePage relative'>
         <div
-          className={cx('HomePage__texture-container w100 bg-light-black')}
-          style={backgroundTexture}
+          className='HomePage__texture-container w100 bg-light-black'
+          // style={backgroundTexture}
         >
-          <div className={cx('HomePage__header w100 flex justify-between')}>
-            <div className={cx('HomePage__header--name')}>
-              <div className={cx('p1 flex items-center flex-col')}>
-                <h1 className={cx('HomePage__headline title-sans-serif')}>
-                  <span
-                    className={cx(
-                      'HomePage__first-name inline-block  color-white'
-                    )}
-                  >
-                    {this.props.firstName}
+          <div className='HomePage__header w100 flex justify-between'>
+            <div className='HomePage__header--name'>
+              <div className='p1 flex items-center flex-col'>
+                <h1 className='HomePage__headline title-sans-serif'>
+                  <span className='HomePage__first-name inline-block  color-white'>
+                    JACKSON
                   </span>
-                  <span
-                    className={cx(
-                      'HomePage__last-name inline-block  color-white'
-                    )}
-                  >
-                    &nbsp;{this.props.lastName}
+                  <span className='HomePage__last-name inline-block color-white'>
+                    &nbsp;HOFFMAN
                   </span>
                 </h1>
               </div>
             </div>
           </div>
 
-          <div className={cx('HomePage__body w100 flex')}>
-            <div
-              className={cx(
-                'HomePage__body--info-container flex flex-col sm:flex-row'
-              )}
-            >
+          <div className='HomePage__body w100 flex'>
+            <div className='HomePage__body--info-container flex flex-col'>
               <div
-                className={cx(
-                  'HomePage__body--image-desktop col-12 sm:col-6 bg-cover'
-                )}
+                className='HomePage__body--image-desktop col-12 bg-cover'
                 style={backgroundImage}
               ></div>
 
               <img
-                className={cx('HomePage__body--image-mobile col-12 sm:col-6')}
+                className='HomePage__body--image-mobile col-12 sm:col-6'
                 src={imageURL}
                 alt=''
               />
 
-              <div
-                className={cx(
-                  'col-12 sm:col-6 p2 flex items-center justify-center sm:justify-start flex-col h100 none sm:block'
-                )}
-              >
-                <div
-                  className={cx(
-                    'w100 text-center',
-                    { 'block HomePage__hi': this.state.showHi === true },
-                    { none: this.state.showHi === false }
-                  )}
-                >
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white'
-                    )}
-                  >
-                    Hi I'm Jack{' '}
+              <div className='col-12 p2 flex items-center justify-center sm:justify-start flex-col h100 none sm:block'>
+                <div className='w100 text-center block HomePage__hi'>
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white'>
+                    Hi I'm Jack &nbsp;
                     <span role='img' aria-label=''>
                       👋
                     </span>
                   </h2>
 
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white'
-                    )}
-                  >
-                    I live in Queens{' '}
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white mt1'>
+                    I live in Queens &nbsp;
                     <span role='img' aria-label=''>
                       👑
                     </span>
+                    <span>&nbsp; and I'm a</span>
                   </h2>
                 </div>
 
-                <div
-                  className={cx(
-                    'HomePage__body--bio-container flex flex-col w100'
-                  )}
-                >
-                  <div className={cx('none sm:block')}>
-                    <h2
-                      className={cx(
-                        'HomePage__sub-headline title-sans-serif color-white text-center'
-                      )}
-                    >
-                      <span
-                        className={cx(
-                          'my3',
-                          {
-                            'block HomePage__hi': this.state.showStuff === true,
-                          },
-                          { none: this.state.showStuff === false }
-                        )}
-                      >
-                        I do stuff like:
-                      </span>
+                <div className='HomePage__body--bio-container flex flex-col w100'>
+                  <div className='justify-around w100 none sm:flex mt1'>
+                    <h2 className='HomePage__sub-headline HomePage__hi block title-sans-serif color-white bold'>
+                      PRODUCER
+                    </h2>
+
+                    <h2 className='HomePage__sub-headline HomePage__hi block title-sans-serif color-white bold'>
+                      ENGINEER
                     </h2>
                   </div>
 
-                  <div className={cx('justify-around w100 none sm:flex')}>
-                    <h2
-                      className={cx(
-                        'HomePage__sub-headline title-sans-serif color-white bold',
-                        {
-                          'block HomePage__hi':
-                            this.state.showSubTitle === true,
-                        },
-                        { none: this.state.showSubTitle === false }
-                      )}
-                    >
-                      {this.props.subTitleOne}
+                  <div className='justify-around w100 none sm:flex'>
+                    <h2 className='HomePage__sub-headline HomePage__hi block title-sans-serif color-white bold'>
+                      SONGWRITER
                     </h2>
 
-                    <h2
-                      className={cx(
-                        'HomePage__sub-headline title-sans-serif color-white bold',
-                        {
-                          'block HomePage__hi':
-                            this.state.showSubTitle === true,
-                        },
-                        { none: this.state.showSubTitle === false }
-                      )}
-                    >
-                      {this.props.subTitleTwo}
+                    <h2 className='HomePage__sub-headline title-sans-serif color-white bold block HomePage__hi'>
+                      MIXER
                     </h2>
                   </div>
 
-                  <div className={cx('justify-around w100 none sm:flex')}>
-                    <h2
-                      className={cx(
-                        'HomePage__sub-headline title-sans-serif color-white bold',
-                        {
-                          'block HomePage__hi':
-                            this.state.showSubTitle === true,
-                        },
-                        { none: this.state.showSubTitle === false }
-                      )}
-                    >
-                      {this.props.subTitleThree}
-                    </h2>
-
-                    <h2
-                      className={cx(
-                        'HomePage__sub-headline title-sans-serif color-white bold',
-                        {
-                          'block HomePage__hi':
-                            this.state.showSubTitle === true,
-                        },
-                        { none: this.state.showSubTitle === false }
-                      )}
-                    >
-                      {this.props.subTitleFour}
-                    </h2>
-                  </div>
-
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white text-center mt3',
-                      {
-                        'block HomePage__hi': this.state.showStuffLike === true,
-                      },
-                      { none: this.state.showStuffLike === false }
-                    )}
-                  >
-                    to make stuff like this
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white text-center mt1 block HomePage__hi'>
+                    i make stuff like this
                     <span
                       className='none lg:inline-block'
                       role='img'
@@ -429,16 +331,10 @@ export default class HomePage extends Component {
                   </h2>
 
                   <a
-                    className={cx(
-                      'HomePage__body--link HomePage__body--link-desktop mt2 p_5 title-sans-serif text-center self-center',
-                      {
-                        'block HomePage__email': this.state.showEmail === true,
-                      },
-                      { none: this.state.showEmail === false }
-                    )}
+                    className='HomePage__body--link HomePage__body--link-desktop mt2 p_5 title-sans-serif text-center self-center block HomePage__email'
                     href='mailto:jacksonhoffmanmusic@gmail.com'
                   >
-                    <span className={cx('')}>email me</span>
+                    <span>email me</span>
                   </a>
                 </div>
               </div>
@@ -448,77 +344,48 @@ export default class HomePage extends Component {
                   'block sm:none p2 flex items-center flex-col justify-center'
                 )}
               >
-                <div className={cx('w100 text-center')}>
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white'
-                    )}
-                  >
-                    Hi I'm Jack{' '}
+                <div className='w100 text-center'>
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white'>
+                    Hi I'm Jack &nbsp;
                     <span role='img' aria-label=''>
                       👋
                     </span>
                   </h2>
 
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white'
-                    )}
-                  >
-                    I live in Queens{' '}
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white'>
+                    I live in Queens &nbsp;
                     <span role='img' aria-label=''>
                       👑
                     </span>
                   </h2>
                 </div>
 
-                <div className={cx('flex justify-between w100 mt2')}>
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white bold'
-                    )}
-                  >
-                    {this.props.subTitleOne}
+                <div className='flex justify-between w100 mt2'>
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white bold'>
+                    PRODUCER
                   </h2>
 
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white bold'
-                    )}
-                  >
-                    {this.props.subTitleTwo}
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white bold'>
+                    ENGINEER
                   </h2>
                 </div>
 
-                <h3
-                  className={cx(
-                    'title-sans-serif my3 text-center color-white block sm:none'
-                  )}
-                >
-                  {this.props.bio}
+                <h3 className='title-sans-serif my3 text-center color-white block sm:none'>
+                  Hey I'm Jack. I live in Queens and I slang them hitz. Send me
+                  some electronic mail to get in touch if you bout it bout it.
                 </h3>
 
-                <div className={cx('flex justify-between w100')}>
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white bold'
-                    )}
-                  >
-                    {this.props.subTitleThree}
+                <div className='flex justify-between w100'>
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white bold'>
+                    SONGWRITER
                   </h2>
-                  <h2
-                    className={cx(
-                      'HomePage__sub-headline title-sans-serif color-white bold'
-                    )}
-                  >
-                    {this.props.subTitleFour}
+                  <h2 className='HomePage__sub-headline title-sans-serif color-white bold'>
+                    MIXER
                   </h2>
                 </div>
 
                 <a
-                  className={cx(
-                    'HomePage__body--link mt2 p_5  title-sans-serif col-4 text-center self-center'
-                  )}
+                  className='HomePage__body--link mt2 p_5  title-sans-serif col-4 text-center self-center'
                   href='mailto:jacksonhoffmanmusic@gmail.com'
                 >
                   <span>email me</span>
@@ -526,14 +393,10 @@ export default class HomePage extends Component {
               </div>
             </div>
 
-            <div
-              className={cx(
-                'HomePage__body--projects-container flex flex-wrap'
-              )}
-            >
+            <div className='HomePage__body--projects-container flex flex-wrap'>
               {this.props.projects.map((project, key) => {
                 return (
-                  <div key={key} className={cx('col-12 sm:col-6')}>
+                  <div key={key} className='col-12 sm:col-4'>
                     <ProjectCard
                       id={project.id}
                       title={project.title}
@@ -583,7 +446,7 @@ export default class HomePage extends Component {
             }
           )}
         >
-          <div className={cx('HomePage__footer')}>
+          <div className='HomePage__footer'>
             <MusicPlayer
               tunes={this.props.tunes}
               muted={this.state.muted}
