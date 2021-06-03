@@ -8,10 +8,10 @@
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    fill: map-get($colors, "black");
+    fill: map-get($colors, "black") !important;
 
     @media (min-width: 1024px) {
-      fill: map-get($colors, "white");
+      fill: map-get($colors, "white") !important;
     }
   }
 

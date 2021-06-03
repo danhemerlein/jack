@@ -16,11 +16,6 @@ export default class HomePage extends Component {
       timeElapsed: 0,
       activeTitle: '',
       muted: false,
-      // showHi: false,
-      // showStuff: false,
-      // showSubTitle: false,
-      // showStuffLike: false,
-      // showEmail: false,
       showMobileControls: false,
       playingAudio: undefined,
     }
@@ -47,8 +42,6 @@ export default class HomePage extends Component {
 
   selectSong = (index) => {
     const audioPlayer = document.getElementById('audio-player')
-
-    console.log(index)
 
     this.setState({
       activeIndex: index,
@@ -395,9 +388,9 @@ export default class HomePage extends Component {
 
             <div className='HomePage__body--projects-container flex flex-wrap'>
               {this.props.songs.map((song, key) => {
-                const { id, title, artist, roles } = song.fields
+                const { title, artist, roles } = song.fields
                 return (
-                  <div key={key} className='col-12 sm:col-4'>
+                  <div key={title} className='col-12 sm:col-4'>
                     <ProjectCard
                       id={key}
                       title={title}

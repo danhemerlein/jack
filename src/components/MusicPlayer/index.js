@@ -38,9 +38,11 @@ class MusicPlayer extends Component {
                 }
               )}
             >
-              <ArrowIcon
-                clickHandler={this.props.toggleMobileAudioControls}
-              ></ArrowIcon>
+              <div className='block sm:none'>
+                <ArrowIcon
+                  clickHandler={this.props.toggleMobileAudioControls}
+                ></ArrowIcon>
+              </div>
             </div>
 
             <div className='MusicPlayer__icon flex items-center h100'>
