@@ -16,16 +16,13 @@ const MainView = ({ model }) => {
     }
   }
 
-  console.log(music)
+  console.log('music', music)
 
   return (
     <div className='MainView'>
       <HomePage
         backgroundImage={get(homePage, 'fields.backgroundImage', {})}
-        projects={get(homePage, 'fields.projects.fields', [])}
-        tunes={music}
-        artworkArray={get(homePage, 'fields.musicArtwork')}
-        cta={get(homePage, 'fields.projectCardCta')}
+        songs={music}
         font={get(homePage, 'fields.font')}
         backgroundTexture={get(homePage, 'fields.backgroundTexture')}
       ></HomePage>

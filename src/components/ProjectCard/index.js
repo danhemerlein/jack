@@ -6,36 +6,31 @@ import './ProjectCard.scss'
 
 export default class ProjectCard extends Component {
   render() {
+    const { roles, artwork, title, artist, id } = this.props
+    console.log(artwork)
+
     let longRoles = false
-    if (this.props.roles.split('/').length > 2) {
+
+    if (roles.split('/').length > 2) {
       longRoles = true
     }
 
     return (
       <div
         onClick={() => {
-          this.props.clickHandler(this.props.id - 1)
+          this.props.clickHandler(id)
         }}
-        className={cx(
-          'ProjectCard flex items-center justify-center flex-col h100 w100'
-        )}
+        className='ProjectCard flex items-center justify-center flex-col h100 w100'
       >
-        <div className={cx('ProjectCard__container relative h100 w100')}>
+        <div className='ProjectCard__container relative h100 w100'>
           <div className='w100 h100 flex'>
-            <Image
-              src={this.props.image.fields.file.url}
-              alt={this.props.image.fields.file.url}
-            />
+            <Image src={artwork.fields.file.url} alt={artwork.fields.title} />
           </div>
 
           <div className='ProjectCard__overlay bg-white flex justify-center flex-col items-center absolute l0 t0 r0 b0'>
-            <div className={cx('bold title-sans-serif')}>
-              {this.props.title}
-            </div>
+            <div className='bold title-sans-serif'>{title}</div>
 
-            <div className={cx('title-sans-serif')}>
-              by&nbsp;{this.props.artist}
-            </div>
+            <div className='title-sans-serif'>by&nbsp;{artist}</div>
 
             <div
               className={cx(
@@ -44,25 +39,24 @@ export default class ProjectCard extends Component {
                 { none: longRoles === false }
               )}
             >
-              <div className={cx('title-sans-serif')}>
-                {this.props.roles.split('/')[0]}/
-                {this.props.roles.split('/')[1]}
+              <div className='title-sans-serif'>
+                {roles.split('/')[0]}/{roles.split('/')[1]}
               </div>
 
-              <div className={cx('title-sans-serif text-center')}>
-                {this.props.roles.split('/')[2]}
+              <div className='title-sans-serif text-center'>
+                {roles.split('/')[2]}
                 <span
                   className={cx(
                     '',
                     {
-                      'inline-block': this.props.roles.split('/').length === 4,
+                      'inline-block': roles.split('/').length === 4,
                     },
-                    { none: this.props.roles.split('/').length !== 4 }
+                    { none: roles.split('/').length !== 4 }
                   )}
                 >
                   /
                 </span>
-                {this.props.roles.split('/')[3]}
+                {roles.split('/')[3]}
               </div>
             </div>
 
@@ -71,7 +65,7 @@ export default class ProjectCard extends Component {
                 none: longRoles === true,
               })}
             >
-              {this.props.roles}
+              {roles}
             </div>
 
             <div className='ProjectCard__svg-container mt2'>
@@ -79,7 +73,7 @@ export default class ProjectCard extends Component {
             </div>
 
             <div className='ProjectCard__CTA title-sans-serif mt2'>
-              {this.props.cta}
+              click to play
             </div>
           </div>
         </div>

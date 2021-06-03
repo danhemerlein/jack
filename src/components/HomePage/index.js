@@ -10,17 +10,17 @@ export default class HomePage extends Component {
     super(props)
 
     this.state = {
-      tunes: this.props.tunes,
+      songs: this.props.songs,
       activeIndex: 0,
       duration: '',
       timeElapsed: 0,
       activeTitle: '',
       muted: false,
-      showHi: false,
-      showStuff: false,
-      showSubTitle: false,
-      showStuffLike: false,
-      showEmail: false,
+      // showHi: false,
+      // showStuff: false,
+      // showSubTitle: false,
+      // showStuffLike: false,
+      // showEmail: false,
       showMobileControls: false,
       playingAudio: undefined,
     }
@@ -52,18 +52,18 @@ export default class HomePage extends Component {
 
     this.setState({
       activeIndex: index,
-      activeTitle: this.state.tunes[index].fields.title,
+      activeTitle: this.state.songs[index].fields.title,
     })
 
-    audioPlayer.src = this.state.tunes[index].fields.audio.fields.file.url
+    audioPlayer.src = this.state.songs[index].fields.audio.fields.file.url
     this.play()
   }
 
   initPlayer = (player) => {
-    player.src = this.state.tunes[0].fields.audio.fields.file.url
+    player.src = this.state.songs[0].fields.audio.fields.file.url
 
     this.setState({
-      activeTitle: this.state.tunes[0].fields.title,
+      activeTitle: this.state.songs[0].fields.title,
     })
   }
 
@@ -123,7 +123,7 @@ export default class HomePage extends Component {
 
   nextSong = () => {
     const nextSongIndex = this.state.activeIndex + 1
-    const lastSongIndex = this.state.tunes.length - 1
+    const lastSongIndex = this.state.songs.length - 1
 
     if (this.state.activeIndex === lastSongIndex) {
       this.selectSong(0)
@@ -136,7 +136,7 @@ export default class HomePage extends Component {
 
   prevSong = () => {
     const prevSongIndex = this.state.activeIndex - 1
-    const lastSongIndex = this.state.tunes.length - 1
+    const lastSongIndex = this.state.songs.length - 1
 
     if (this.state.activeIndex === 0) {
       this.selectSong(lastSongIndex)
@@ -307,7 +307,7 @@ export default class HomePage extends Component {
                       SONGWRITER
                     </h2>
 
-                    <h2 className='HomePage__sub-headline title-sans-serif color-white bold block HomePage__hi'>
+                    <h2 className='HomePage__sub-headline HomePage__hi block title-sans-serif color-white bold'>
                       MIXER
                     </h2>
                   </div>
@@ -394,17 +394,17 @@ export default class HomePage extends Component {
             </div>
 
             <div className='HomePage__body--projects-container flex flex-wrap'>
-              {this.props.projects.map((project, key) => {
+              {this.props.songs.map((song, key) => {
+                const { id, title, artist, roles } = song.fields
                 return (
                   <div key={key} className='col-12 sm:col-4'>
                     <ProjectCard
-                      id={project.id}
-                      title={project.title}
-                      artist={project.artist}
-                      roles={project.roles}
+                      id={key}
+                      title={title}
+                      artist={artist}
+                      roles={roles}
                       clickHandler={this.projectCardClick}
-                      image={this.props.artworkArray[key]}
-                      cta={this.props.cta}
+                      artwork={song.fields.artwork}
                     ></ProjectCard>
                   </div>
                 )
@@ -415,7 +415,7 @@ export default class HomePage extends Component {
           <div className='HomePage__footer-desktop'>
             <div className={cx('HomePage__footer')}>
               <MusicPlayer
-                tunes={this.props.tunes}
+                songs={this.props.songs}
                 muted={this.state.muted}
                 timeElapsed={this.state.timeElapsed}
                 duration={this.state.duration}
@@ -448,7 +448,7 @@ export default class HomePage extends Component {
         >
           <div className='HomePage__footer'>
             <MusicPlayer
-              tunes={this.props.tunes}
+              songs={this.props.songs}
               muted={this.state.muted}
               timeElapsed={this.state.timeElapsed}
               duration={this.state.duration}
