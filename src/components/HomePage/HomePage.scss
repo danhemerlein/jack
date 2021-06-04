@@ -10,6 +10,19 @@
   overflow: hidden;
   height: auto;
 
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a:visited {
+    color: white;
+  }
+  a:active {
+    color: white
+  }
+
   &__first-name {
     -webkit-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
     -moz-animation: fade-in-right $transition-duration-short cubic-bezier(0.25, 0.2, 0, 1);
@@ -78,7 +91,6 @@
 
     @media (max-width: 1024px) {
       height: 100vh;
-      overflow-y: scroll;
     }
 
   }
