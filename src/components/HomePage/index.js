@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import MusicPlayer from '../../components/MusicPlayer'
 import ProjectCard from '../../components/ProjectCard'
 import { debounce, secondsToHms } from '../../utils'
@@ -254,11 +255,35 @@ export default class HomePage extends Component {
           </div>
 
           <div className='HomePage__body w100 flex'>
-            <div className='HomePage__body--info-container flex flex-col'>
+            <div className='HomePage__body--info-container flex flex-wrap'>
               <div
-                className='HomePage__body--image-desktop col-12 bg-cover'
+                className='HomePage__body--image-desktop col-6'
                 style={backgroundImage}
               ></div>
+
+              <div className='col-6 flex items-center justify-center flex-col'>
+                <p className='title-sans-serif color-white'>
+                  <a
+                    href='https://www.instagram.com/jacksonhoffmanmusic/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    instagram
+                  </a>
+                </p>
+                <p className='title-sans-serif color-white mt1'>
+                  <a
+                    href='https://open.spotify.com/playlist/66DQy2mVH5QnVLc3O4lR62?si=FaBvit_HTw2BCHDxV4qrKQ'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    spotify reel
+                  </a>
+                </p>
+                <p className='title-sans-serif color-white mt1'>
+                  <Link to='/sync-work'>sync work</Link>
+                </p>
+              </div>
 
               <img
                 className='HomePage__body--image-mobile col-12 sm:col-6'

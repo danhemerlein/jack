@@ -34,7 +34,7 @@ const MainView = ({ model }) => {
               />
             )}
           />
-          <Route exact path='/sync' render={() => <SyncPage />} />
+          <Route exact path='/sync-work' render={() => <SyncPage />} />
         </Switch>
       </Router>
     </>
