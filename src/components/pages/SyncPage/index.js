@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroHeadline from '../../sections/HeroHeadline'
+import HeroHeadline from '../../Sections/HeroHeadline'
 import './SyncPage.scss'
 
 export default function SyncPage() {
