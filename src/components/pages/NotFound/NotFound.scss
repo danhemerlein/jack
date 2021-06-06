@@ -1,6 +1,6 @@
 @import "../../../styles/app.scss";
 
-.SyncPage {
+.NotFound {
   -webkit-animation: fadein $transition-duration-1s;
   -moz-animation: fadein $transition-duration-1s;
   -ms-animation: fadein $transition-duration-1s;
@@ -19,40 +19,24 @@
   background-repeat: no-repeat;
   overflow: hidden;
 
-
-  @media (min-width: 720px) {
-    height: 100vh;
-    overflow: hidden;
-  }
-
-
-  &__iframe {
-    height: 450px;
-    border: 0;
-  }
+  height: 100vh;
 
   a {
-    text-decoration: none;
+    color: black;
   }
 
   a:hover {
-    span {
-      text-decoration: underline;
-    }
+    text-decoration: underline;
   }
 
   a:visited {
-    span {
-      color: white;
-      text-decoration: none;
-    }
+    color: black;
+
   }
 
   a:active {
-    span {
-      color: white;
-      text-decoration: none;
-    }
+    color: black;
+
   }
 
 }

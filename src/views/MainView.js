@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomePage from '../components/pages/HomePage'
+import NotFound from '../components/pages/NotFound'
 import SyncPage from '../components/pages/SyncPage'
 import { get } from '../utils'
 
@@ -34,6 +35,7 @@ const MainView = ({ model }) => {
             )}
           />
           <Route exact path='/sync-work' render={() => <SyncPage />} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Router>
     </>
