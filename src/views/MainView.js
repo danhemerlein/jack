@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import HomePage from '../components/HomePage'
-import SyncPage from '../components/SyncPage'
+import HomePage from '../components/pages/HomePage'
+import SyncPage from '../components/pages/SyncPage'
 import { get } from '../utils'
 
 const MainView = ({ model }) => {
@@ -27,9 +27,8 @@ const MainView = ({ model }) => {
             path='/'
             render={() => (
               <HomePage
-                backgroundImage={get(homePage, 'fields.backgroundImage', {})}
+                heroImage={get(homePage, 'fields.backgroundImage', {})}
                 songs={songs}
-                font={get(homePage, 'fields.font')}
                 backgroundTexture={get(homePage, 'fields.backgroundTexture')}
               />
             )}

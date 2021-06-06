@@ -1,10 +1,6 @@
-@import "../../styles/app.scss";
+@import "../../../styles/app.scss";
 
 .HomePage {
-  -webkit-animation: fadein $transition-duration-1s;
-  -moz-animation: fadein $transition-duration-1s;
-  -ms-animation: fadein $transition-duration-1s;
-  -o-animation: fadein $transition-duration-1s;
   animation: fadein $transition-duration-1s;
 
   overflow: hidden;
@@ -13,12 +9,15 @@
   a {
     text-decoration: none;
   }
+
   a:hover {
     text-decoration: underline;
   }
+
   a:visited {
     color: white;
   }
+
   a:active {
     color: white
   }
@@ -68,35 +67,6 @@
 
     }
 
-    &--image-desktop {
-      display: none;
-      height: auto;
-      background-position-y: 25%;
-      background-size: cover;
-
-      @media (min-width: 640px) {
-        height: 50%;
-      }
-
-      @media (min-width: 1024px) {
-        display: block;
-
-      }
-    }
-
-    &--image-mobile {
-      display: block;
-      height: auto;
-
-      @media (min-width: 640px) {
-        height: 100%;
-      }
-
-      @media (min-width: 1024px) {
-        display: none;
-      }
-    }
-
     &--projects-container {
       overflow-y: none;
       width: 100%;
@@ -108,34 +78,6 @@
       }
     }
 
-    &--link {
-      border: 1px solid map-get($colors, "black");
-      box-shadow: -5px 5px 4px map-get($colors, "white");
-      background: map-get($colors, "white");
-      text-decoration: none;
-      color: map-get($colors, "black");
-
-      &:hover {
-        background-color: map-get($colors, "grey");
-        box-shadow: -5px 5px 4px map-get($colors, "grey");
-
-        > span {
-          color: map-get($colors, "white");
-        }
-      }
-    }
-
-    &--link-desktop {
-      width: 25%;
-
-      @media (min-width: 1024px) and (max-width: 1266px) {
-        width: 33.33%;
-      }
-
-       @media (min-width: 640px) and (max-width: 858px) {
-        width: 50%;
-      }
-    }
   }
 
   &__footer-desktop {

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import './MobileInfo.scss'
 
 const StyledH2 = styled.h2`
   color: white;
@@ -42,7 +43,7 @@ export default function MobileInfo() {
       </div>
 
       <a
-        className='HomePage__body--link mt2 p_5 col-4 text-center self-center'
+        className='MobileInfo__email-button mt2 p_5 col-4 text-center self-center'
         href='mailto:jacksonhoffmanmusic@gmail.com'
       >
         <span>email me</span>

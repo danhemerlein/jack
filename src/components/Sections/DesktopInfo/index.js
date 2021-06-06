@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import './DesktopInfo.scss'
 
 const StyledH2 = styled.h2`
   color: white;
@@ -50,7 +51,7 @@ export default function DesktopInfo() {
         </StyledH2>
 
         <a
-          className='HomePage__body--link HomePage__body--link-desktop mt2 p_5 title-sans-serif text-center self-center block HomePage__email'
+          className='DesktopInfo__email-button mt2 p_5 title-sans-serif text-center self-center block'
           href='mailto:jacksonhoffmanmusic@gmail.com'
         >
           <span>email me</span>

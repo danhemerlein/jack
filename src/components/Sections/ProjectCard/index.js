@@ -1,13 +1,12 @@
 import cx from 'classnames'
 import React, { Component } from 'react'
-import Image from '../../components/base/Image'
-import PlayIcon from '../../components/icons/Play'
+import Image from '../../../components/base/Image'
+import PlayIcon from '../../../components/icons/Play'
 import './ProjectCard.scss'
 
 export default class ProjectCard extends Component {
   render() {
     const { roles, artwork, title, artist, id } = this.props
-    console.log(artwork)
 
     let longRoles = false
 

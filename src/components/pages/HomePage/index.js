@@ -1,10 +1,10 @@
 import cx from 'classnames'
 import React, { Component } from 'react'
 import { debounce, secondsToHms } from '../../../utils'
-import InfoSection from '../../InfoSection'
 import MusicPlayer from '../../MusicPlayer'
-import ProjectCard from '../../ProjectCard'
-import HeroHeadline from '../../Sections/HeroHeadline'
+import HeroHeadline from '../../sections/HeroHeadline'
+import InfoSection from '../../sections/InfoSection'
+import ProjectCard from '../../sections/ProjectCard'
 import './HomePage.scss'
 
 export default class HomePage extends Component {
@@ -182,6 +182,8 @@ export default class HomePage extends Component {
         'url(' + this.props.backgroundTexture.fields.file.url + ')',
     }
 
+    console.log('homepage hero image', this.props.heroImage)
+
     return (
       <div className='HomePage relative'>
         <div
@@ -192,7 +194,7 @@ export default class HomePage extends Component {
 
           <div className='HomePage__body w100 flex'>
             <div className='HomePage__body--info-container flex flex-wrap '>
-              <InfoSection image={this.props.backgroundImage} />
+              <InfoSection img={this.props.heroImage} />
             </div>
 
             <div className='HomePage__body--projects-container flex flex-wrap'>
