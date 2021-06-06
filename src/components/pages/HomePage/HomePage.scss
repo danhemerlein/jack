@@ -1,0 +1,89 @@
+@import "../../../styles/app.scss";
+
+.HomePage {
+  animation: fadein $transition-duration-1s;
+  height: auto;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  a:active {
+    color: black
+  }
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &__body {
+
+    flex-wrap: wrap;
+
+    @media (min-width: 1024px) {
+      flex-wrap: nowrap;
+    }
+
+    &--projects-container {
+      overflow-y: none;
+
+      @media (min-width: 1024px) {
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+    }
+
+  }
+
+  &__footer-desktop {
+    display: none;
+    color: map-get($colors, "white");
+
+    @media (min-width: 1024px) {
+      display: block
+    }
+  }
+
+  &__footer-mobile {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background: map-get($colors, "white");
+    z-index: 1;
+    transition: transform 2s cubic-bezier(0.25, 0.2, 0, 1);
+
+    &--hide {
+      transform: translateX(90%);
+      cursor: pointer;
+
+      @media (min-width: 640px) {
+        transform: translateX(93%);
+      }
+
+    }
+
+    &--show {
+      transform: translateX(0);
+    }
+
+    .MusicPlayer__data-container {
+      color: map-get($colors, "black");
+    }
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
+  }
+}
