@@ -20,9 +20,39 @@
   overflow: hidden;
 
 
-  overflow: hidden;
-  height: 100vh;
+  @media (min-width: 640px) {
+    height: 100vh;
+    overflow: hidden;
+  }
 
 
+  &__iframe {
+    height: 450px;
+    border: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  a:visited {
+    span {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  a:active {
+    span {
+      color: white;
+      text-decoration: none;
+    }
+  }
 
 }

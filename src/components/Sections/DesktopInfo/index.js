@@ -1,0 +1,61 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const StyledH2 = styled.h2`
+  color: white;
+  font-size: 1.5rem;
+`
+
+export default function DesktopInfo() {
+  return (
+    <div className='col-12 p2 flex items-center justify-center sm:justify-start flex-col h100 none sm:block title-sans-serif'>
+      <div className='w100 text-center block '>
+        <StyledH2 className='HomePage__sub-headline  color-white'>
+          Hi I'm Jack &nbsp;
+          <span role='img' aria-label=''>
+            👋
+          </span>
+        </StyledH2>
+
+        <StyledH2 className='HomePage__sub-headline title-sans-serif color-white mt1'>
+          I live in Queens &nbsp;
+          <span role='img' aria-label=''>
+            👑
+          </span>
+          <span>&nbsp; and I'm a</span>
+        </StyledH2>
+      </div>
+
+      <div className='HomePage__body--bio-container flex flex-col w100'>
+        <div className='justify-around w100 none sm:flex mt1'>
+          <StyledH2>PRODUCER</StyledH2>
+
+          <StyledH2>ENGINEER</StyledH2>
+        </div>
+
+        <div className='justify-around w100 none sm:flex'>
+          <StyledH2>SONGWRITER</StyledH2>
+
+          <StyledH2>MIXER</StyledH2>
+        </div>
+
+        <StyledH2 className='text-center mt1 block'>
+          I make stuff like this
+          <span className='none lg:inline-block' role='img' aria-label=''>
+            &nbsp;⏩
+          </span>
+          <span className='inline-block lg:none' role='img' aria-label=''>
+            &nbsp;⏬
+          </span>
+        </StyledH2>
+
+        <a
+          className='HomePage__body--link HomePage__body--link-desktop mt2 p_5 title-sans-serif text-center self-center block HomePage__email'
+          href='mailto:jacksonhoffmanmusic@gmail.com'
+        >
+          <span>email me</span>
+        </a>
+      </div>
+    </div>
+  )
+}
