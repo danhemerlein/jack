@@ -1,7 +1,6 @@
 import cx from 'classnames'
 import React, { Component } from 'react'
 import Image from '../../../components/base/Image'
-import PlayIcon from '../../../components/icons/Play'
 import './ProjectCard.scss'
 
 export default class ProjectCard extends Component {
@@ -27,7 +26,7 @@ export default class ProjectCard extends Component {
           </div>
 
           <div className='ProjectCard__overlay bg-white flex justify-center flex-col items-center absolute l0 t0 r0 b0'>
-            <div className='bold title-sans-serif'>{title}</div>
+            <div className='bold title-sans-serif text-center'>{title}</div>
 
             <div className='title-sans-serif'>by&nbsp;{artist}</div>
 
@@ -67,13 +66,13 @@ export default class ProjectCard extends Component {
               {roles}
             </div>
 
-            <div className='ProjectCard__svg-container mt2'>
-              <PlayIcon></PlayIcon>
-            </div>
+            {/* <div className='ProjectCard__svg-container mt2'> */}
+            {/* <PlayIcon></PlayIcon> */}
+            {/* </div> */}
 
-            <div className='ProjectCard__CTA title-sans-serif mt2'>
+            {/* <div className='ProjectCard__CTA title-sans-serif mt2'>
               click to play
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

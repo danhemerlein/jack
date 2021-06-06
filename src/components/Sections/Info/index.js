@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import './DesktopInfo.scss'
 
 const StyledH2 = styled.h2`
-  color: white;
+  color: black;
   font-size: 1.5rem;
 `
 
@@ -11,14 +11,14 @@ export default function DesktopInfo() {
   return (
     <div className='col-12 p2 flex items-center justify-center flex-col title-sans-serif'>
       <div className='w100 text-center block '>
-        <StyledH2 className='HomePage__sub-headline  color-white'>
+        <StyledH2 className='HomePage__sub-headline '>
           Hi I'm Jack &nbsp;
           <span role='img' aria-label=''>
             👋
           </span>
         </StyledH2>
 
-        <StyledH2 className='HomePage__sub-headline title-sans-serif color-white mt1'>
+        <StyledH2 className='HomePage__sub-headline title-sans-serif mt1'>
           I live in Queens &nbsp;
           <span role='img' aria-label=''>
             👑
