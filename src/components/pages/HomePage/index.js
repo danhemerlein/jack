@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import { debounce, secondsToHms } from '../../../utils'
 import TextureContainer from '../../base/TextureContainer'
 import MusicPlayer from '../../MusicPlayer'
-import HeroHeadline from '../../sections/HeroHeadline'
-import InfoSection from '../../sections/InfoSection'
-import ProjectCard from '../../sections/ProjectCard'
+import HeroHeadline from '../../Sections/HeroHeadline'
+import InfoSection from '../../Sections/InfoSection'
+import ProjectCard from '../../Sections/ProjectCard'
 import './HomePage.scss'
 
 export default class HomePage extends Component {
