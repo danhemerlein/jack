@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import React, { Component } from 'react'
-import Image from '../../../components/base/Image'
+import Image from '../../base/Image'
 import './ProjectCard.scss'
 
 export default class ProjectCard extends Component {
