@@ -1,7 +1,6 @@
 import React from 'react'
-import DesktopInfo from '../DesktopInfo'
-import LinkSection from '../Links'
-import MobileInfo from '../MobileInfo'
+import Info from '../Info'
+import Links from '../Links'
 import './InfoSection.scss'
 
 export default function InfoSection(props) {
@@ -12,20 +11,17 @@ export default function InfoSection(props) {
   }
 
   return (
-    <>
-      <div className='InfoSection__image-desktop col-6' style={styleObj}></div>
+    <div className='w100 flex flex-col lg:flex-row lg:flex-wrap'>
+      <div
+        className='InfoSection__image-desktop col-4 mauto lg:m0 lg:col-6'
+        style={styleObj}
+      ></div>
 
-      <LinkSection />
+      <div className='lg:flex flex-col justify-around lg:col-6'>
+        <Links />
 
-      <img
-        className='InfoSection__image-mobile col-12 sm:col-6'
-        src={img.fields.file.url}
-        alt=''
-      />
-
-      <DesktopInfo />
-
-      <MobileInfo />
-    </>
+        <Info />
+      </div>
+    </div>
   )
 }

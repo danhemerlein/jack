@@ -9,7 +9,7 @@ const StyledH2 = styled.h2`
 
 export default function DesktopInfo() {
   return (
-    <div className='col-12 p2 flex items-center justify-center sm:justify-start flex-col h100 none sm:block title-sans-serif'>
+    <div className='col-12 p2 flex items-center justify-center flex-col title-sans-serif'>
       <div className='w100 text-center block '>
         <StyledH2 className='HomePage__sub-headline  color-white'>
           Hi I'm Jack &nbsp;

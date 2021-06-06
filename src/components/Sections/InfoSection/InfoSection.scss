@@ -3,31 +3,13 @@
 
 .InfoSection {
   &__image-desktop {
-    display: none;
-    height: auto;
     background-position-y: 25%;
     background-size: cover;
-
-    @media (min-width: 640px) {
-      height: 50%;
-    }
+    height: 450px;
 
     @media (min-width: 1024px) {
-      display: block;
-
-    }
-  }
-
-  &__image-mobile {
-    display: block;
-    height: auto;
-
-    @media (min-width: 640px) {
       height: 100%;
-    }
-
-    @media (min-width: 1024px) {
-      display: none;
+      display: block;
     }
   }
 }

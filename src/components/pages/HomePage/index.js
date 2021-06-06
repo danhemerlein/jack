@@ -1,6 +1,7 @@
 import cx from 'classnames'
 import React, { Component } from 'react'
 import { debounce, secondsToHms } from '../../../utils'
+import TextureContainer from '../../base/TextureContainer'
 import MusicPlayer from '../../MusicPlayer'
 import HeroHeadline from '../../sections/HeroHeadline'
 import InfoSection from '../../sections/InfoSection'
@@ -177,27 +178,20 @@ export default class HomePage extends Component {
   }
 
   render() {
-    const backgroundTexture = {
-      backgroundImage:
-        'url(' + this.props.backgroundTexture.fields.file.url + ')',
-    }
-
-    console.log('homepage hero image', this.props.heroImage)
+    // const backgroundTexture = {
+    //   backgroundImage:
+    //     'url(' + this.props.backgroundTexture.fields.file.url + ')',
+    // }
 
     return (
       <div className='HomePage relative'>
-        <div
-          className='HomePage__texture-container w100 bg-light-black'
-          // style={backgroundTexture}
-        >
+        <TextureContainer>
           <HeroHeadline />
 
           <div className='HomePage__body w100 flex'>
-            <div className='HomePage__body--info-container flex flex-wrap '>
-              <InfoSection img={this.props.heroImage} />
-            </div>
+            <InfoSection img={this.props.heroImage} />
 
-            <div className='HomePage__body--projects-container flex flex-wrap'>
+            <div className='HomePage__body--projects-container col-12 lg:col-6 flex flex-wrap'>
               {this.props.songs.map((song, key) => {
                 const { title, artist, roles } = song.fields
                 return (
@@ -235,7 +229,7 @@ export default class HomePage extends Component {
               ></MusicPlayer>
             </div>
           </div>
-        </div>
+        </TextureContainer>
 
         <div
           className={cx(

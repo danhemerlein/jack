@@ -38,7 +38,7 @@ class MusicPlayer extends Component {
                 }
               )}
             >
-              <div className='block sm:none'>
+              <div className='block lg:none'>
                 <ArrowIcon
                   clickHandler={this.props.toggleMobileAudioControls}
                 ></ArrowIcon>

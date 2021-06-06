@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function LinkSection() {
   return (
-    <div className='col-6 flex items-center justify-center flex-col'>
+    <div className='col-12 flex items-center justify-center flex-col'>
       <p className='title-sans-serif color-white'>
         <a
           href='https://www.instagram.com/jacksonhoffmanmusic/'

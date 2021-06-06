@@ -2,8 +2,6 @@
 
 .HomePage {
   animation: fadein $transition-duration-1s;
-
-  overflow: hidden;
   height: auto;
 
   a {
@@ -22,31 +20,9 @@
     color: white
   }
 
-  &__texture-container {
-    box-shadow:inset 0 0 100px rgba(0,0,20,.7), 0 5px 15px rgba(0,0,0,.5);
-    background:-webkit-linear-gradient(top, rgba(255,145,0,0.2) 0%,rgba(255,230,48,0.2) 80%), -webkit-linear-gradient(20deg, rgba(255,0,0,0.5) 0%,rgba(255,0,0,0) 70%);
-    width: 100%;
-    height: 100%;
-    -webkit-filter:sepia(0.1) brightness(1.1) contrast(1);
-    transition:-webkit-filter 0.3s ease-in-out;
-    z-index: -1;
-
-    background-position: center;
-    background-repeat: no-repeat;
-
-    @media (max-width: 1024px) {
-      overflow: hidden;
-      height: 100vh;
-    }
-
-  }
-
-  svg {
-    fill: map-get($colors, "white");
-  }
-
   @media (min-width: 1024px) {
     height: 100vh;
+    overflow: hidden;
   }
 
   &__body {
@@ -57,22 +33,10 @@
       flex-wrap: nowrap;
     }
 
-    &--info-container {
-
-      width: 100%;
-
-      @media (min-width: 1024px) {
-        width: 50%
-      }
-
-    }
-
     &--projects-container {
       overflow-y: none;
-      width: 100%;
 
       @media (min-width: 1024px) {
-        width: 50%;
         overflow-y: scroll;
         overflow-x: hidden;
       }
