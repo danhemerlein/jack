@@ -14,6 +14,7 @@ export default class HomePage extends Component {
 
     this.state = {
       songs: this.props.songs,
+      dumb: false,
       activeIndex: 0,
       duration: '',
       timeElapsed: 0,
