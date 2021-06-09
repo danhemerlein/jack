@@ -1,17 +1,16 @@
 @import "../../../styles/app.scss";
 
-.DesktopInfo {
+.Info {
   &__email-button {
 
     border: 1px solid map-get($colors, "black");
-    box-shadow: -5px 5px 4px map-get($colors, "white");
     background: map-get($colors, "white");
     text-decoration: none;
-    color: map-get($colors, "black");
+    color: map-get($colors, "white");
 
     &:hover {
-      background-color: map-get($colors, "grey");
-      box-shadow: -5px 5px 4px map-get($colors, "grey");
+      text-decoration: none !important;
+      background: map-get($colors, "black");
 
       > span {
         color: map-get($colors, "white");

@@ -19,6 +19,12 @@ const MainView = ({ model }) => {
     }
   }
 
+  songs.sort((a, b) => {
+    return a.fields.order - b.fields.order
+  })
+
+  console.log(songs)
+
   return (
     <>
       <Router>
@@ -30,7 +36,6 @@ const MainView = ({ model }) => {
               <HomePage
                 heroImage={get(homePage, 'fields.backgroundImage', {})}
                 songs={songs}
-                backgroundTexture={get(homePage, 'fields.backgroundTexture')}
               />
             )}
           />

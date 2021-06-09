@@ -179,11 +179,6 @@ export default class HomePage extends Component {
   }
 
   render() {
-    // const backgroundTexture = {
-    //   backgroundImage:
-    //     'url(' + this.props.backgroundTexture.fields.file.url + ')',
-    // }
-
     return (
       <div className='HomePage relative'>
         <TextureContainer>

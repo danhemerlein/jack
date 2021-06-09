@@ -17,7 +17,7 @@ export default function InfoSection(props) {
         style={styleObj}
       ></div>
 
-      <div className='lg:flex flex-col justify-around lg:col-6'>
+      <div className='lg:flex flex-col justify-center lg:col-6'>
         <Info />
         <Links />
       </div>

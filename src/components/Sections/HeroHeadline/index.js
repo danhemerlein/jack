@@ -8,10 +8,10 @@ export default function HeroHeadline() {
       <div className='p1 flex items-center flex-col w100'>
         <h1 className='title-sans-serif'>
           <Link to='/'>
-            <span className='HeroHeadline__first-name inline-block color-white'>
+            <span className='HeroHeadline__first-name inline-block color-black'>
               JACKSON
             </span>
-            <span className='HeroHeadline__last-name inline-block color-white'>
+            <span className='HeroHeadline__last-name inline-block color-black'>
               &nbsp;HOFFMAN
             </span>
           </Link>
