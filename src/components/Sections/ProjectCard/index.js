@@ -26,9 +26,9 @@ export default class ProjectCard extends Component {
           </div>
 
           <div className='ProjectCard__overlay bg-white flex justify-center flex-col items-center absolute l0 t0 r0 b0'>
-            <div className='bold title-sans-serif text-center'>{title}</div>
+            <p className='bold title-sans-serif text-center'>{title}</p>
 
-            <div className='title-sans-serif'>by&nbsp;{artist}</div>
+            <p className='title-sans-serif'>by&nbsp;{artist}</p>
 
             <div
               className={cx(
@@ -37,11 +37,11 @@ export default class ProjectCard extends Component {
                 { none: longRoles === false }
               )}
             >
-              <div className='title-sans-serif'>
+              <p className='title-sans-serif'>
                 {roles.split('/')[0]}/{roles.split('/')[1]}
-              </div>
+              </p>
 
-              <div className='title-sans-serif text-center'>
+              <p className='title-sans-serif text-center'>
                 {roles.split('/')[2]}
                 <span
                   className={cx(
@@ -55,24 +55,16 @@ export default class ProjectCard extends Component {
                   /
                 </span>
                 {roles.split('/')[3]}
-              </div>
+              </p>
             </div>
 
-            <div
+            <p
               className={cx('title-sans-serif mt1', {
                 none: longRoles === true,
               })}
             >
               {roles}
-            </div>
-
-            {/* <div className='ProjectCard__svg-container mt2'> */}
-            {/* <PlayIcon></PlayIcon> */}
-            {/* </div> */}
-
-            {/* <div className='ProjectCard__CTA title-sans-serif mt2'>
-              click to play
-            </div> */}
+            </p>
           </div>
         </div>
       </div>

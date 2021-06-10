@@ -12,8 +12,13 @@ export default function InfoSection(props) {
 
   return (
     <div className='w100 flex flex-col lg:flex-row lg:flex-wrap'>
+      <img
+        className='block md:none col-8 mauto'
+        src={img.fields.file.url}
+        alt='Jackson Hoffman headshot in an outdoor setting.'
+      />
       <div
-        className='InfoSection__image-desktop mauto lg:m0 col-6'
+        className='InfoSection__image-desktop none md:block mauto lg:m0 col-6'
         style={styleObj}
       ></div>
 

@@ -10,6 +10,14 @@
     -webkit-transition: opacity $transition-duration-ultra-short ease-in-out;
     transition: opacity $transition-duration-ultra-short ease-in-out;
 
+    p {
+      font-size: 1.5rem;
+
+      @media (min-width: 1024px) {
+        font-size: 1rem;
+      }
+
+    }
 
     @media (min-width: 1024px) and (max-width: 1245px) {
       font-size: 0.75rem

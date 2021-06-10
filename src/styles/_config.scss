@@ -14,6 +14,7 @@ $breakpoints: (
   "xl": 1444px,
 );
 
+
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }

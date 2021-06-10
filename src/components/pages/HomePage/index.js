@@ -191,7 +191,7 @@ export default class HomePage extends Component {
               {this.props.songs.map((song, key) => {
                 const { title, artist, roles } = song.fields
                 return (
-                  <div key={title} className='col-12 sm:col-4'>
+                  <div key={title} className='col-12 md:col-4'>
                     <ProjectCard
                       id={key}
                       title={title}

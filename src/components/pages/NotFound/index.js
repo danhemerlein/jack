@@ -6,12 +6,16 @@ import './NotFound.scss'
 const StyledHeadline = styled.h1`
   font-size: 2rem;
   color: black;
+  font-family: sans-serif;
+  text-align: center;
 `
 
 const StyledHeadlineTwo = styled.h2`
   font-size: 2rem;
   color: black;
   margin-top: 1rem;
+  font-family: sans-serif;
+  text-align: center;
 `
 
 export default function NotFound() {

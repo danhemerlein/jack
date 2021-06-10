@@ -23,8 +23,6 @@ const MainView = ({ model }) => {
     return a.fields.order - b.fields.order
   })
 
-  console.log(songs)
-
   return (
     <>
       <Router>

@@ -21,6 +21,8 @@
     color: black
   }
 
+  overflow-x: hidden;
+
   @media (min-width: 1024px) {
     height: 100vh;
     overflow: hidden;
