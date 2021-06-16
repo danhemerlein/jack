@@ -32,7 +32,6 @@ export default function Info() {
       <div className='HomePage__body--bio-container flex flex-col w100'>
         <div className='w100 mt_5 flex justify-center'>
           <StyledH2>producer,&nbsp;</StyledH2>
-          <StyledH2>engineer,&nbsp;</StyledH2>
           <StyledH2>songwriter &&nbsp;</StyledH2>
           <StyledH2>mixer</StyledH2>
         </div>
